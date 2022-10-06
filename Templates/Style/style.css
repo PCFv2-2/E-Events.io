@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "FLORAL";
+    src: url("../Fonts/FloralpersonaluseBold-2OYod.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Kumbh";
+    src: url("../Fonts/KumbhSans-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+    margin:0;
+    position: relative;
+    padding-bottom: 58px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+main {
+    margin: 0 auto;
+    padding: 30px 20px;
+
+}
+
+.h{
+    font-family: "FLORAL", bold;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    color: #140A00;
+}
+
+.italic-text{
+    font-style: italic;
+    color: grey;
+}
+
+.container_top_bot{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    background-color: #f9c04e;
+}
+
+.container_top_font {
+    font-family: "FLORAL", bold;
+}
+
+.container_bot_font {
+    font-family: "Kumbh";
+}
+
+.container_top_bot__section {
+    display: flex;
+    align-items: center;
+}
+
+.container_top_bot__item {
+    padding: 0.5em 1em;
+    font-size: 1em;
+}
+
+.container_top_botButton {
+    cursor: pointer;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #FDF1D8;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+#contact{
+    display: flex;
+    justify-content: space-around;
+}
+
+#name-contact{
+    display: flex;
+    justify-content: space-around;
+}
+
+#contact-left{
+    margin-left: 1em;
+}
+
+#contact-right{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#contact-submit{
+    background-color: #F9C04E;
+}
+
+.input{
+    width : 20em;
+}
+
+.input2{
+    width : 9.5em;
+}
+
+#last-name{
+    margin-left: 0.5em;
+}
+
+@media screen and (max-width: 768px) {
+    #contact {
+        flex-direction: column;
+    }
+}
