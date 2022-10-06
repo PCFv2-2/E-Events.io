@@ -1,5 +1,6 @@
 <?php
-require '../Constants/DataBaseConstants.php';
+require_once '../../Required.php';
+require_once Required::getMainDir() . '/Constants/DataBaseConstants.php';
 
 class DataBase
 {
@@ -33,34 +34,41 @@ class DataBase
         }
     }
 
-    public function __destruct()
-    {
-        mysqli_close($this->dbLink);
-    }
-
-    public function queryAndFetch($query)
+    public function selectQueryAndFetch($query, $params, $types)
     {
         try {
-            $dbResult = mysqli_query($this->dbLink,$query);
+//            $dbResult = mysqli_query($this->dbLink, $query);
+            $queryPrepared = $this->dbLink->prepare($query);
+
+            if (is_bool($queryPrepared)){
+                throw new \http\Exception\RuntimeException('Error during querying');
+            }
+
+            $queryPrepared->bind_param($types, ...$params);
+            $queryPrepared->execute();
 
             $index = 0;
             $tab = array();
-            while ($dbRow = mysqli_fetch_assoc($dbResult)){
+            while ($dbRow = $queryPrepared->fetch()) {
                 $tab[$index] = $dbRow;
                 $index += 1;
             }
-        } catch (Exception $e){
+        } catch (Exception $e) {
             throw new \http\Exception\RuntimeException('Error during querying');
         }
 
         return $tab;
     }
 
-    public function close () {
+    public function close()
+    {
         try {
             mysqli_close($this->dbLink);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             throw new \http\Exception\RuntimeException('Error during closing');
         }
     }
 }
+
+$db = new DataBase(DataBaseEnum::MAIN_READ);
+print_r($db->selectQueryAndFetch('SELECT * FROM `ROLES` WHERE ROLE_ID = ?',array('1'),'i'));
