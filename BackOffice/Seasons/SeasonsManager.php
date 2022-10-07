@@ -3,24 +3,27 @@
 require_once '../../Required.php';
 
 function addSeason(Season $season){
+    try {
+        $selectionQuery = 'SELECT DATE_END FROM `SEASONS` WHERE SEASON_ID = (SELECT MAX(SEASON_ID) FROM `SEASONS`)';
+        $insertionQuery = 'INSERT INTO `SEASONS` (DATE_START,DATE_END) VALUES (?,?)';
 
-    echo 'Date start' . "\n";
-    print_r($season->getDateStart());
+        //Vérification de la date
+        if ($season->getDateStart() > $season->getDateEnd()) {
+            throw new RuntimeException('Bad date selection');
+        }
 
-    echo 'Date end' . "\n";
-    print_r($season->getDateEnd());
+        //Récupération du dernier evènement dans la BDD
+        $db = new DataBase(DataBaseEnum::MAIN_WRITE);
+        $lastSeasonEndDate = $db->selectQueryAndFetch($selectionQuery);
 
-    //Vérification de la date
-    if ($season->getDateStart() >= $season->getDateEnd()) {
-        throw new \http\Exception\RuntimeException('Bad date selection');
+        $diff = $season->getDateStart()->diff(new DateTime($lastSeasonEndDate[0][0]));
+
+        if ($diff->invert == 0) {
+            throw new RuntimeException('Bad date selection');
+        }
+
+        $db->insertQueryAndFetch($insertionQuery,array($season->getDateStart()->format('Y/m/d'),$season->getDateEnd()->format('Y/m/d')),'ss');
+    } catch (Exception $e){
+        echo $e;
     }
-
-    //Récupération du dernier evènement dans la BDD
-    $db = new DataBase(DataBaseEnum::MAIN_WRITE);
-    $lastSeason = $db->queryAndFetch('SELECT * FROM `SEASONS` WHERE SEASON_ID = (SELECT MAX(SEASON_ID) FROM `SEASONS`);');
 }
-
-$dateStart = new DateTime('2022-05-01');
-$dateEnd = new DateTime('2022-05-01');
-
-addSeason(new Season(-1, $dateStart, $dateStart));

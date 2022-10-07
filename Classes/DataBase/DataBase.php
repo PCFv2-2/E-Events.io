@@ -30,34 +30,30 @@ class DataBase
                     throw new RuntimeException('No database type selected !');
             }
         } catch (Exception $e) {
-            throw new \http\Exception\RuntimeException('Error during linking');
+            throw new RuntimeException('Error during linking');
         }
     }
 
-    public function selectQueryAndFetch($query, $params, $types)
+    public function selectQueryAndFetch($query, $params = array(), $types = null): array
     {
         try {
 //            $dbResult = mysqli_query($this->dbLink, $query);
             $queryPrepared = $this->dbLink->prepare($query);
 
             if (is_bool($queryPrepared)){
-                throw new \http\Exception\RuntimeException('Error during querying');
+                throw new RuntimeException('Error during querying');
             }
 
             $queryPrepared->bind_param($types, ...$params);
             $queryPrepared->execute();
 
-            $index = 0;
-            $tab = array();
-            while ($dbRow = $queryPrepared->fetch()) {
-                $tab[$index] = $dbRow;
-                $index += 1;
-            }
+            $result = $queryPrepared->get_result();
+
         } catch (Exception $e) {
-            throw new \http\Exception\RuntimeException('Error during querying');
+            throw new RuntimeException('Error during querying');
         }
 
-        return $tab;
+        return $result->fetch_all();
     }
 
     public function close()
@@ -65,10 +61,7 @@ class DataBase
         try {
             mysqli_close($this->dbLink);
         } catch (Exception $e) {
-            throw new \http\Exception\RuntimeException('Error during closing');
+            throw new RuntimeException('Error during closing');
         }
     }
 }
-
-$db = new DataBase(DataBaseEnum::MAIN_READ);
-print_r($db->selectQueryAndFetch('SELECT * FROM `ROLES` WHERE ROLE_ID = ?',array('1'),'i'));

@@ -33,7 +33,7 @@ function addUser(User $user)
             //$dbMain->queryAndFetch($queryMain);
             echo 'BDD -> utilisateur ajouté';
         } catch (Exception $e) {
-            throw new \http\Exception\RuntimeException('Error during adding');
+            throw new RuntimeException('Error during adding');
         }
     } else {
         // User already used or password is null or role is null
@@ -65,7 +65,7 @@ function removeUser(User $user)
             $dbMain->queryAndFetch($queryMain);
             echo 'BDD -> utilisateur supprimé';
         } catch (Exception $e) {
-            throw new \http\Exception\RuntimeException('Error during removing');
+            throw new RuntimeException('Error during removing');
         }
     } else {
         // Login is incorrect
@@ -87,12 +87,12 @@ function updateUser(User $user){
 
     if ($role != null){
         try{
-            $queryMain = 'UPDATE USERS SET ROLE_ID =' . $role . 'WHERE LOGIN = ' . safeEncrypt($login,$key) . '';
+            $queryMain = 'UPDATE `USERS` SET ROLE_ID = ? WHERE LOGIN = ?';
             //Execute query
-            $dbMain->queryAndFetch($queryMain);
+            $dbMain->insertQueryAndFetch($queryMain,array($role,safeEncrypt($login,$key),'is'));
         }
         catch (Exception $e){
-            throw new \http\Exception\RuntimeException('Error during updating');
+            throw new RuntimeException('Error during updating');
         }
     }
     else {
