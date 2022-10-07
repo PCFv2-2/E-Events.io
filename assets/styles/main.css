@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "FLORAL";
+    src: url("../fonts/FloralBold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Kumbh";
+    src: url("../fonts/KumbhSans.ttf") format("truetype");
+}
+
 :root {
     /* Variables */
     /* Colors */
@@ -8,9 +18,9 @@
     --secondary: #CD9FCC;
     --white: #fff;
 
-    /* Fonts */
-    --text: Kumbh Sans, Roboto, sans-serif;
-    --title: Floral, Roboto, sans-serif;
+    /* fonts */
+    --text: Kumbh, Roboto, sans-serif;
+    --title: FLORAL, Roboto, sans-serif;
 
     --border: 1.5px solid var(--black);
     --radius3: 32px;
@@ -20,6 +30,9 @@
     /* General */
     color: var(--black);
     font-family: var(--text);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 h1, h2 {

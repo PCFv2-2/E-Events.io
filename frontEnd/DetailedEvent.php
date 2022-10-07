@@ -4,13 +4,13 @@ $points = 15;
 ?>
 
 <!-- Adding Stylesheet -->
-<link rel="stylesheet" href="../Assets/Style/DetailedEvent.css">
-<link rel="stylesheet" href="../Assets/Style/main.css">
+<link rel="stylesheet" href="../assets/styles/DetailedEvent.css">
+<link rel="stylesheet" href="../assets/styles/main.css">
 
 <div class="detailed_event">
     <div class="detailed_event-left_panel">
         <h1 class="detailed_event-left_panel-title">tournoi smash au stade de france</h1>
-        <img src="../Assets/Images/lorem-image.png" class="detailed_event-left_panel-image"
+        <img src="../assets/images/lorem-image.png" class="detailed_event-left_panel-image"
              alt="An image relative to the event"/>
         <p class="detailed_event-left_panel-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor est et condimentum semper. Aenean

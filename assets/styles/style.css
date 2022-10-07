@@ -1,25 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-@font-face {
-    font-family: "FLORAL";
-    src: url("../Fonts/FloralpersonaluseBold-2OYod.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Kumbh";
-    src: url("../Fonts/KumbhSans-VariableFont_wght.ttf") format("truetype");
-}
-
-body {
-    margin:0;
-    position: relative;
-    padding-bottom: 58px;
-}
-
 footer {
     position: absolute;
     bottom: 0;

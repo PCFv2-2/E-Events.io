@@ -7,9 +7,9 @@ function start_page($title){
         <meta name="viewport" content="width=device-width" />
 
         <title> <?php echo $title;?> </title>
-        <link rel="icon" type="image/x-icon" href="../Templates/Images/logo_orange_no_text.ico">
+        <link rel="icon" type="image/x-icon" href="../assets/images/logo_orange_no_text.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../Templates/Style/style.css" type="text/css"/>
+        <link rel="stylesheet" href="../assets/styles/style.css" type="text/css"/>
     </head>
 
     <body>
@@ -21,13 +21,13 @@ function start_page($title){
             <!-- This section gets pushed to the left side-->
             <div class="container_top_bot__section">
                 <div class="container_top_bot__item">
-                    <img width="30" src="../Templates/Images/Logo_Black_No_Text.png" alt="logo du site E-Events.IO"/>
+                    <img width="30" src="../assets/images/Logo_Black_No_Text.png" alt="logo du site E-Events.IO"/>
                 </div>
                 <div class="container_top_bot__item container_top_botButton">e-event.io</div>
             </div>
             <!-- This section gets pushed to the right side-->
             <div class="container_top_bot__section">
-                <div class="container_top_bot__item container_top_botButton"><a href="./homePage.php"><i class="fa fa-envelope-o fa-lg"></i></a></div>
+                <div class="container_top_bot__item container_top_botButton"><a href="index.php"><i class="fa fa-envelope-o fa-lg"></i></a></div>
                 <div class="container_top_bot__item container_top_botButton"><a href="./contact.php"><i class="fa fa-user-o fa-lg"></i></a></div>
             </div>
         </div>
