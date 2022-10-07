@@ -1,0 +1,32 @@
+:root {
+    /* Variables */
+    /* Colors */
+    --black: #140A00;
+    --light: #FDF1D8;
+    --primary: #F9C04E;
+    --light_primary: #FBDC9D;
+    --secondary: #CD9FCC;
+    --white: #fff;
+
+    /* Fonts */
+    --text: Kumbh Sans, Roboto, sans-serif;
+    --title: Floral, Roboto, sans-serif;
+
+    --border: 1.5px solid var(--black);
+    --radius3: 32px;
+    --radius2: 16px;
+    --radius1: 8px;
+
+    /* General */
+    color: var(--black);
+    font-family: var(--text);
+}
+
+h1, h2 {
+    font-family: var(--title);
+}
+
+button {
+    background: none;
+    border: none;
+}
