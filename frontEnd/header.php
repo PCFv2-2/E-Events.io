@@ -29,8 +29,8 @@ function startPage($title){
             </div>
             <!-- This section gets pushed to the right side-->
             <div class="container_top_bot__section">
-                <div class="container_top_bot__item container_top_botButton"><a href="index.php"><i class="fa fa-envelope-o fa-lg"></i></a></div>
-                <div class="container_top_bot__item container_top_botButton"><a href="./contact.php"><i class="fa fa-user-o fa-lg"></i></a></div>
+                <div class="container_top_bot__item container_top_botButton"><a href="contact.php"><i class="fa fa-envelope-o fa-lg"></i></a></div>
+                <div class="container_top_bot__item container_top_botButton"><a href="./connexion.php"><i class="fa fa-user-o fa-lg"></i></a></div>
             </div>
         </div>
     </header>

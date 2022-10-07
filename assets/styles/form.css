@@ -30,6 +30,7 @@ form{
     border-radius: var(--radius1);
 }
 
+
 #contact{
     display: flex;
     justify-content: space-around;
@@ -73,6 +74,20 @@ form{
 
 #last-name{
     margin-left: 0.5em;
+}
+
+.connexion{
+    display: flex;
+    justify-content: right;
+}
+
+.icon{
+    margin-top: 0.5em;
+    margin-right: 1em;
+}
+
+.inscription{
+    background: var(--light_primary);
 }
 
 @media screen and (max-width: 768px) {
