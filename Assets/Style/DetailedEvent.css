@@ -1,0 +1,90 @@
+.detailed_event {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+}
+
+.detailed_event-left_panel {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.detailed_event-right_panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+/* Description */
+.detailed_event-left_panel-title {
+
+}
+
+.detailed_event-left_panel-image {
+    border: 5px solid var(--light);
+    border-radius: var(--radius2);
+
+}
+.detailed_event-left_panel-description {
+
+}
+
+
+
+/* Vote card */
+.detailed_event-right_panel-vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.3rem;
+    background: var(--light);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius3);
+    width: 65%;
+}
+
+.vote-donate_selector {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.vote-text {
+    width: 85%;
+    font-weight: bolder;
+    font-size: 14px;
+    text-align: center;
+}
+
+.vote-submit_btn {
+    background: var(--secondary);
+    border-radius: var(--radius2);
+    width: 95%;
+    height: 3rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Steps card */
+.detailed_event-right_panel-steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--light);
+    border: var(--border);
+    border-radius: var(--radius3);
+    width: 100%;
+    text-align: center;
+}
+
+.steps-add_btn {
+    position: relative;
+    top: -250px;
+    right: -375px;
+    background: var(--secondary);
+    border: var(--border);
+    border-radius: var(--radius2);
+    height: 75px;
+    width: 75px;
+}
