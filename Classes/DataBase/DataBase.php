@@ -43,8 +43,9 @@ class DataBase
             if (is_bool($queryPrepared)){
                 throw new RuntimeException('Error during querying');
             }
-
-            $queryPrepared->bind_param($types, ...$params);
+            if ($types != null){
+                $queryPrepared->bind_param($types, ...$params);
+            }
             $queryPrepared->execute();
 
             $result = $queryPrepared->get_result();
