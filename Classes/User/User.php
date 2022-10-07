@@ -15,8 +15,6 @@ class User
         $this->login = $login;
         $this->role = $role;
         $this->password = $password;
-
-        echo $login;
     }
 
     public function updateRole($role = UsersRolesEnum::NO_ROLE)

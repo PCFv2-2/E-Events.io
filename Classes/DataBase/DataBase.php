@@ -56,6 +56,23 @@ class DataBase
         return $result->fetch_all();
     }
 
+    public function insertQueryAndFetch($query, $params = array(), $types = '')
+    {
+        try {
+            $queryPrepared = $this->dbLink->prepare($query);
+
+            if (is_bool($queryPrepared)){
+                throw new RuntimeException('Error during querying');
+            }
+
+            $queryPrepared->bind_param($types, ...$params);
+            $queryPrepared->execute();
+
+        } catch (Exception $e) {
+            throw new RuntimeException('Error during querying');
+        }
+    }
+
     public function close()
     {
         try {

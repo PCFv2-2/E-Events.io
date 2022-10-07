@@ -5,32 +5,39 @@ require_once Required::getMainDir() . '/Crypter/Crypter.php';
 /**
  * @param User $user
  * @return void
+ * @throws Exception
  */
 function addUser(User $user)
 {
     $key = '11111111111111111111111111111111';
     /* Connection */
     $dbLogin = new DataBase(DataBaseEnum::LOGINS_WRITE);
-    //$dbMain = new DataBase(DataBaseEnum::MAIN_WRITE);
+    $dbMain = new DataBase(DataBaseEnum::MAIN_WRITE);
     /* User data */
     $login = $user->getLogin();
     $password = $user->getPassword();
     $role = $user->getRole();
-    echo $login;
-    $loginsList = $dbLogin->queryAndFetch('SELECT LOGIN FROM USERS');
+    $loginsList = $dbLogin->selectQueryAndFetch('SELECT LOGIN FROM USERS',array(),'');
+
+    $loginCrypt = safeEncrypt($login,$key);
+    $passwordHash = hash('sha256',$password);
+
+    foreach ($loginsList as $value){
+        if ($login == safeDecrypt($value[0],$key)){
+            throw new RuntimeException('Wrong login');
+        }
+    }
     //Verify that login is unique
-    if (!in_array($login, $loginsList) && ($password != null) && ($role != null)) {
+    if (($password != null) && ($role != null)) {
         try {
-            $queryLogin = "INSERT INTO USERS (LOGIN, PASSWORD) VALUES ($login,$password)";
-
-            //GET id of USER in DATABASE login
-            //$id = $dbLogin->queryAndFetch('SELECT USER_ID FROM USERS WHERE LOGIN = ' . safeEncrypt($login,$key));
-
-            //$queryMain = 'INSERT INTO USERS (USER_ID,ROLE_ID) VALUES (' . $id . ',' . $role . ')';
+            $queryLogin = 'INSERT INTO `USERS` (LOGIN, PASSWORD) VALUES (?,?)';
+            $queryMain = 'INSERT INTO `USERS` (USER_ID,ROLE_ID) VALUES (?,?)';
 
             // Execute queries
-            $dbLogin->queryAndFetch($queryLogin);
-            //$dbMain->queryAndFetch($queryMain);
+            $dbLogin->insertQueryAndFetch($queryLogin,array($loginCrypt,$passwordHash),'ss');
+            //GET id of USER in DATABASE login
+            $id = $dbLogin->selectQueryAndFetch('SELECT USER_ID FROM `USERS` WHERE LOGIN = ?',array($loginCrypt),'s');
+            $dbMain->insertQueryAndFetch($queryMain,array($id[0][0],$role),'ii');
             echo 'BDD -> utilisateur ajouté';
         } catch (Exception $e) {
             throw new RuntimeException('Error during adding');
@@ -39,7 +46,7 @@ function addUser(User $user)
         // User already used or password is null or role is null
         echo 'Error : le login est déjà utilisé ou le mot de passe / role est nul';
     }
-    //$dbMain->close();
+    $dbMain->close();
     $dbLogin->close();
 }
 
@@ -49,20 +56,28 @@ function addUser(User $user)
  */
 function removeUser(User $user)
 {
+    $key = '11111111111111111111111111111111';
     $dbLogin = new DataBase(DataBaseEnum::LOGINS_WRITE);
     $dbMain = new DataBase(DataBaseEnum::MAIN_WRITE);
 
     // User data
     $login = $user->getLogin();
+    $listLogins = $dbLogin->selectQueryAndFetch('SELECT LOGIN FROM `USERS`');
+    $loginToDelete = null;
+    foreach ($listLogins as $value){
+        if ($login == safeDecrypt($value[0],$key)){
+            $loginToDelete = $value[0];
+        }
+    }
 
     if ($login != null) {
         try {
-            $queryLogin = 'DELETE FROM USERS WHERE LOGIN =' . safeEncrypt($login,$key) . '';
-            $queryMain = 'DELETE FROM USERS WHERE LOGIN =' . safeEncrypt($login,$key) . '';
+            $queryLogin = 'DELETE FROM `USERS` WHERE LOGIN = ?';
+            $queryMain = 'DELETE FROM `USERS` WHERE LOGIN = ?';
 
             // Execute queries
-            $dbLogin->queryAndFetch($queryLogin);
-            $dbMain->queryAndFetch($queryMain);
+            $dbLogin->insertQueryAndFetch($queryLogin,array($loginToDelete),'s');
+            $dbMain->insertQueryAndFetch($queryMain,array($loginToDelete),'s');
             echo 'BDD -> utilisateur supprimé';
         } catch (Exception $e) {
             throw new RuntimeException('Error during removing');
@@ -103,6 +118,7 @@ function updateUser(User $user){
 
 }
 
-$user = new User(-1,$login='guillaume',$role=UsersRolesEnum::DONOR,$password='1234');
-addUser($user);
+$key = '11111111111111111111111111111111';
+$user = new User(-1,$login='Guillaume',$role=UsersRolesEnum::DONOR,$password='123456');
+removeUser($user);
 
