@@ -1,6 +1,6 @@
 <?php
-    include '../Templates/header.php';
-    start_page("Contact");
+    include '../frontEnd/header.php';
+    startPage("Contact");
 ?>
 
 
@@ -12,7 +12,7 @@
         <!-- subject, fist-name, last-name, email, details -->
         <form>
             <div>
-                <p class="h">contact</p>
+                <p id="title">contact</p>
                 <div id="contact">
                     <div id="contact-left">
                         <label for="subject">Sujet</label><br>
@@ -60,6 +60,6 @@
 
 
 <?php
-    include '../Templates/footer.php';
-    end_page();
+    include '../frontEnd/footer.php';
+    endPage();
 ?>

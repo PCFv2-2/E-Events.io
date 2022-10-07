@@ -10,58 +10,24 @@ main {
 
 }
 
-.h{
-    font-family: "FLORAL", bold;
+#title{
+    font-family: var(--title);
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
-    color: #140A00;
-}
-
-.italic-text{
-    font-style: italic;
-    color: grey;
-}
-
-.container_top_bot{
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5em;
-    background-color: #f9c04e;
-}
-
-.container_top_font {
-    font-family: "FLORAL", bold;
-}
-
-.container_bot_font {
-    font-family: "Kumbh";
-}
-
-.container_top_bot__section {
-    display: flex;
-    align-items: center;
-}
-
-.container_top_bot__item {
-    padding: 0.5em 1em;
-    font-size: 1em;
-}
-
-.container_top_botButton {
-    cursor: pointer;
+    color: var(--black);
+    margin-left: 0.5em;
 }
 
 form{
+    border: var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #FDF1D8;
-    margin-top: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
+    background-color: var(--light);
+    margin: 10% 10% 10% 10%;
+    border-radius: var(--radius1);
 }
 
 #contact{
@@ -84,15 +50,25 @@ form{
 }
 
 #contact-submit{
-    background-color: #F9C04E;
+    background-color: var(--primary);
 }
 
 .input{
     width : 20em;
+    height: 2.5em;
+    border-radius: var(--radius1);
+    border: var(--border);
 }
 
 .input2{
+    border: var(--border);
     width : 9.5em;
+    height: 2.5em;
+    border-radius: var(--radius1);
+}
+
+#details{
+    height: 10.5em;
 }
 
 #last-name{

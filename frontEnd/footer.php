@@ -1,5 +1,5 @@
 <?php
-function end_page(){
+function endPage(){
     ?>
     <footer>
          <div class="container_top_bot container_bot_font">

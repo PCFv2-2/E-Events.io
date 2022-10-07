@@ -1,0 +1,40 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+main {
+    margin: 0 auto;
+    padding: 30px 20px;
+
+}
+
+.container_top_bot{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    background-color: var(--primary);;
+}
+
+.container_top_font {
+    font-family: var(--title);
+}
+
+.container_bot_font {
+    font-family: "Kumbh";
+}
+
+.container_top_bot__section {
+    display: flex;
+    align-items: center;
+}
+
+.container_top_bot__item {
+    padding: 0.5em 1em;
+    font-size: 1em;
+}
+
+.container_top_botButton {
+    cursor: pointer;
+}
