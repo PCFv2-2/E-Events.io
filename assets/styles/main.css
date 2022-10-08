@@ -5,7 +5,12 @@
 
 @font-face {
     font-family: "Kumbh";
-    src: url("../fonts/KumbhSans.ttf") format("truetype");
+    src: url("../fonts/Kumbh Sans.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kumbh Extra Bold";
+    src: url("../fonts/KumbhSans-ExtraBold.ttf") format("truetype");
 }
 
 :root {
@@ -35,11 +40,23 @@
     box-sizing: border-box;
 }
 
-h1, h2 {
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+h1, h2, h3 {
     font-family: var(--title);
+    text-transform: lowercase;
 }
 
 button {
     background: none;
     border: none;
+}
+
+a {
+    text-decoration: none;
 }
