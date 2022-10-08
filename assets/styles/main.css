@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 @font-face {
     font-family: "FLORAL";
     src: url("../fonts/FloralBold.otf") format("opentype");
@@ -11,13 +5,12 @@
 
 @font-face {
     font-family: "Kumbh";
-    src: url("../fonts/KumbhSans.ttf") format("truetype");
+    src: url("../fonts/Kumbh Sans.ttf") format("truetype");
 }
 
-body {
-    margin:0;
-    position: relative;
-    padding-bottom: 58px;
+@font-face {
+    font-family: "Kumbh Extra Bold";
+    src: url("../fonts/KumbhSans-ExtraBold.ttf") format("truetype");
 }
 
 :root {
@@ -47,11 +40,23 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2 {
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+h1, h2, h3 {
     font-family: var(--title);
+    text-transform: lowercase;
 }
 
 button {
     background: none;
     border: none;
+}
+
+a {
+    text-decoration: none;
 }
