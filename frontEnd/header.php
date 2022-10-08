@@ -23,9 +23,11 @@ function startPage($title){
             <!-- This section gets pushed to the left side-->
             <div class="container_top_bot__section">
                 <div class="container_top_bot__item">
-                    <img width="30" src="../assets/images/Logo_Black_No_Text.png" alt="logo du site E-Events.IO"/>
+                    <a href="homepage.php">
+                        <img width="30" src="../assets/images/Logo_Black_No_Text.png" alt="logo du site E-Events.IO"/>
+                    </a>
                 </div>
-                <div class="container_top_bot__item container_top_botButton">e-event.io</div>
+                <div class="container_top_bot__item container_top_botButton"><a href="homepage.php">e-event.io</a></div>
             </div>
             <!-- This section gets pushed to the right side-->
             <div class="container_top_bot__section">
