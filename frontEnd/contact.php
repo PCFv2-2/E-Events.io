@@ -1,6 +1,6 @@
 <?php
     include '../frontEnd/header.php';
-    startPage("Contact");
+    startPage("Contact",["form"],[]);
 ?>
 
 
