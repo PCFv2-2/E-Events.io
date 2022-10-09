@@ -1,4 +1,7 @@
 <?php
+require_once "header.php";
+require_once "footer.php";
+start_page("Nom de l'évènement");
 //$points = $_SESSION["nbPoints"];
 $points = 15;
 ?>
@@ -7,7 +10,7 @@ $points = 15;
 <link rel="stylesheet" href="../assets/styles/DetailedEvent.css">
 <link rel="stylesheet" href="../assets/styles/main.css">
 
-<div class="detailed_event">
+<section class="detailed_event">
     <div class="detailed_event-left_panel">
         <h1 class="detailed_event-left_panel-title">tournoi smash au stade de france</h1>
         <img src="../assets/images/lorem-image.png" class="detailed_event-left_panel-image"
@@ -26,41 +29,19 @@ $points = 15;
             lacus vehicula purus, at ornare tortor elit eget est. Etiam quam orci, cursus quis porta ut, facilisis id
             libero. Phasellus venenatis ut tortor at blandit. Curabitur sed feugiat quam. Donec scelerisque, leo vel
             bibendum malesuada, enim neque feugiat orci, ac auctor quam turpis vel quam.
-            <br/><br/>
-            Praesent ut nisi nec elit lacinia blandit vel et neque. Quisque ultricies, sem non maximus eleifend, velit
-            nibh dignissim est, et congue eros velit non nisl. Quisque ac sollicitudin ipsum. Cras nibh orci, eleifend
-            at semper et, tempor sed metus. Sed sit amet mauris et sapien consectetur mollis eu ullamcorper lorem. Fusce
-            nec ipsum nibh. Vivamus finibus ante ac commodo congue.
-            <br/><br/>
-            Nunc magna est, semper vitae ipsum imperdiet, pulvinar sollicitudin nisl. Nunc id nulla sit amet mi
-            condimentum tincidunt vitae eget libero. Vivamus pharetra condimentum ultrices. Nulla sodales sem orci, in
-            vestibulum ante rutrum non. Pellentesque a consequat lorem. Vivamus ut eros augue. Nullam pellentesque nulla
-            nec lectus viverra pellentesque at quis erat. Fusce interdum blandit leo, vel auctor neque semper in. Sed
-            elementum, est sed faucibus sagittis, mi neque faucibus ante, viverra tristique lectus nibh eu dui. Integer
-            sed aliquet elit. Sed sollicitudin erat vulputate leo ultricies rutrum. Duis non tortor sit amet velit
-            sagittis porttitor. Aliquam et mauris ligula. Phasellus condimentum imperdiet posuere.
-            <br/><br/>
-            Fusce vitae est sagittis, condimentum purus ac, tincidunt nisi. Fusce interdum pharetra tortor. Nulla semper
-            odio eu ex viverra, vel semper quam dignissim. Donec ut molestie felis, feugiat tempor eros. Quisque nec
-            posuere mauris. Maecenas sed pretium mauris, at dapibus leo. Aliquam finibus turpis id mauris dapibus
-            elementum. Nullam.
         </p>
     </div>
-    <div class="detailed_event-right_panel">
+    <aside class="detailed_event-right_panel">
         <?php
         //TODO If user is a Donator, display this block
         ?>
         <form class="detailed_event-right_panel-vote" method="post">
-            <h2 class="vote-title">Voter pour cet évènement ?</h2>
+            <h2 class="vote-title">Voter pour l'évènement</h2>
             <div class="vote-donate_selector">
-                <div class="vote-donate_selector-slider_container">
-                    <input type="range" id="donate_selector_slider" min="1" max="<?php echo $points; ?>"
-                           oninput="donate_selector_number.value=donate_selector_slider.value"/>
-                </div>
-                <div class="vote-donate_selector-number_container">
-                    <input type="number" id="donate_selector_number" value="4" min="0" max="15"
-                           oninput="donate_selector_slider.value=donate_selector_number.value"/>
-                </div>
+                <input type="range" id="donate_selector_slider" min="1" max="<?php echo $points; ?>"
+                       oninput="donate_selector_number.value=donate_selector_slider.value"/>
+                <input type="number" id="donate_selector_number" value="4" min="0" max="15"
+                       oninput="donate_selector_slider.value=donate_selector_number.value"/>
             </div>
             <div class="vote-progress_bar"></div>
             <p class="vote-text">Encore X points avant d'atteindre le niveau suivant</p>
@@ -83,8 +64,80 @@ $points = 15;
                     <p>Etape 4</p>
                 </div>
             </div>
-            <button class="steps-add_btn">+</button>
+            <!--<button class="steps-add_btn">+</button>-->
         </div>
 
+    </aside>
+</section>
+<section class="other_events">
+    <h1 class="other_events-title">D'autres évènements qui pourraient vous plaire</h1>
+    <div class="other_events-cards">
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <a class="other_events-cards-card" href="#">
+            <div class="card-bottom">
+                <h3 class="card-bottom-title">Titre de l'évènement</h3>
+                <i class="fa fa-arrow-right"></i>
+            </div>
+        </a>
+
+
     </div>
-</div>
+</section>
+<?php
+end_page();
+?>

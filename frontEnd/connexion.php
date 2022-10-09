@@ -1,6 +1,6 @@
 <?php
     include '../FrontEnd/header.php';
-    startPage("Connexion");
+    startPage("Connexion",["form"],[]);
 ?>
 
 <main>
