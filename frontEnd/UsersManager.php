@@ -2,18 +2,18 @@
 require_once '../Required.php';
 require_once Required::getMainDir() . '/Constants/KeyConstants.php';
 require_once Required::getMainDir() . '/Crypter/Crypter.php';
-include './UsersManagerBackEnd/userManagerData.php';
+include './UsersManagerBackEnd/UsersManagerData.php';
 include './header.php';
-startPage("Contact");
+include './footer.php';
+startPage('Gestion des utilisateurs',array('UsersManager'),array());
 ?>
-    <link rel="stylesheet" href="../assets/styles/userManager.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <main class="user_manager">
         <h2>Gestion des utilisateurs</h2>
         <div class="container">
-            <!-- Formulaire 1 -->
-            <form action="UsersManagerBackEnd/usersManagerForm.php" method="post" class="user_manager_all_users">
+            <!-- Form 1 -->
+            <form action="UsersManagerBackEnd/UsersManagerForm.php" method="post" class="user_manager_all_users">
                 <span class="column_1">LOGIN</span>
                 <span class="column_2">PASSWORD</span>
                 <span class="column_3">ROLE_ID</span>
@@ -49,8 +49,8 @@ startPage("Contact");
                 </button>
             </form>
         </div>
-        <!-- Formulaire 2 -->
-        <form action="UsersManagerBackEnd/usersManagerFormAdd.php" method="post" class="row_user">
+        <!-- Form 2 -->
+        <form action="UsersManagerBackEnd/UsersManagerFormAdd.php" method="post" class="border_r row_user">
             <input required type="text" name="login" placeholder="Michel"/>
             <input required type="password" name="password" placeholder="123456"/>
             <input required type="text" name="role" placeholder="1"/>
@@ -60,6 +60,5 @@ startPage("Contact");
         </form>
     </main>
 <?php
-include './footer.php';
 endPage();
 ?>

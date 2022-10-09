@@ -1,5 +1,5 @@
 <?php
-include '../FrontEnd/header.php'
+include '../FrontEnd/header.php';
 startPage("Connexion",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../assets/javascript/carousel"]);
 ?>
 
