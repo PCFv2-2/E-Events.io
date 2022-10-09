@@ -1,5 +1,4 @@
 footer {
-
     bottom: 0;
     width: 100%;
 }
@@ -7,7 +6,6 @@ footer {
 main {
     margin: 0 auto;
     padding: 30px 20px;
-
 }
 
 #title{
@@ -88,10 +86,23 @@ form{
 
 .inscription{
     background: var(--light_primary);
+    margin-right: 1em;
+    margin-bottom: 1em;
+    width : 9.5em;
+    height: 2.5em;
+}
+
+#validate{
+    display: flex;
+    justify-content: right;
 }
 
 @media screen and (max-width: 768px) {
     #contact {
         flex-direction: column;
+    }
+
+    #title{
+        font-size: 35px;
     }
 }

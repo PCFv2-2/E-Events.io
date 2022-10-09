@@ -9,12 +9,8 @@ function startPage($title, $cssName, $jsScipt){
         <title> <?php echo $title;?> </title>
         <link rel="icon" type="image/x-icon" href="../assets/images/logo_orange_no_text.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!--link rel="stylesheet" href="../assets/styles/form.css" type="text/css"/-->
         <link rel="stylesheet" href="../assets/styles/main.css" type="text/css"/>
         <link rel="stylesheet" href="../assets/styles/headerAndFooter.css" type="text/css"/>
-        <!--link rel="stylesheet" href="../assets/styles/carousel.css" type="text/css"/-->
-        <!--script src="https://kit.fontawesome.com/2c7fc28a2f.js"></script>
-        <script src="../assets/javascript/carousel.js"></script-->
         <?php
             //stylesheet
             foreach($cssName as $stylesheet){?>

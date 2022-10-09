@@ -24,8 +24,10 @@
                         <br>
                     </div>
                     <br/>
-                    <button class="inscription input">S'inscrire</button>
-                    <input type="submit" value="Envoyer" class="input2" id="contact-submit"/>
+                    <div id="validate">
+                        <button class="inscription input">S'inscrire</button>
+                        <input type="submit" value="Envoyer" class="input2" id="contact-submit"/>
+                    </div>
                     <br/>
                 </div>
             </div>
