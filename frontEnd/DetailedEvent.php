@@ -1,15 +1,11 @@
 <?php
 require_once "header.php";
 require_once "footer.php";
-start_page("Nom de l'évènement");
+startPage("Nom de l'évènement", array('DetailedEvent'), array());
 //$points = $_SESSION["nbPoints"];
 $points = 15;
+$listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement")
 ?>
-
-<!-- Adding Stylesheet -->
-<link rel="stylesheet" href="../assets/styles/DetailedEvent.css">
-<link rel="stylesheet" href="../assets/styles/main.css">
-
 <section class="detailed_event">
     <div class="detailed_event-left_panel">
         <h1 class="detailed_event-left_panel-title">tournoi smash au stade de france</h1>
@@ -72,72 +68,20 @@ $points = 15;
 <section class="other_events">
     <h1 class="other_events-title">D'autres évènements qui pourraient vous plaire</h1>
     <div class="other_events-cards">
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-        <a class="other_events-cards-card" href="#">
-            <div class="card-bottom">
-                <h3 class="card-bottom-title">Titre de l'évènement</h3>
-                <i class="fa fa-arrow-right"></i>
-            </div>
-        </a>
-
-
+        <?php
+        foreach ($listNamesOfEvents as $eventName) {
+            ?>
+            <a class="other_events-cards-card" href="#">
+                <div class="card-bottom">
+                    <h3 class="card-bottom-title"><?php echo $eventName?></h3>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </a>
+            <?php
+        }
+        ?>
     </div>
 </section>
 <?php
-end_page();
+endPage();
 ?>

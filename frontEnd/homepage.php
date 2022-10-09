@@ -61,6 +61,6 @@ startPage("Accueil",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../a
 </main>
 
 <?php
-include '../frontEnd/footer.php';
+include '../FrontEnd/footer.php';
 endPage();
 ?>
