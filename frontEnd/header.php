@@ -31,7 +31,6 @@ function startPage($title, $cssName, $jsScipt){
 
     <body>
     <!-- Here is our main header that is used across all the pages of our website -->
-
     <header>
         <div>
             <div class="container_top_bot container_top_font">
