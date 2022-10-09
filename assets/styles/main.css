@@ -40,11 +40,12 @@
     box-sizing: border-box;
 }
 
+* {box-sizing:border-box}
+
 body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
+    margin:0;
+    position: relative;
+    padding-bottom: 58px;
 }
 
 h1, h2, h3 {

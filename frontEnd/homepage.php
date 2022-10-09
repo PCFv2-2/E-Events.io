@@ -1,6 +1,6 @@
 <?php
 include '../frontEnd/header.php';
-startPage("Connexion",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../assets/javascript/carousel"]);
+startPage("Accueil",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../assets/javascript/carousel"]);
 ?>
 
 <main>
@@ -22,21 +22,38 @@ startPage("Connexion",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","..
             }
         ?>
         <br/>
-        <div id="container">
-            <div id="galleryView">
-                <div id="galleryContainer">
-                    <div id="leftView"></div>
-                    <button id="navLeft" class="navBtns"><i class="fas fa-arrow-left fa-3x"></i></button>
-                    <a id="linkTag">
-                        <div id="mainView"></div>
-                    </a>
-                    <div id="rightView"></div>
-                    <button id="navRight" class="navBtns"><i class="fas fa-arrow-right fa-3x"></i></button>
-                </div>
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style="width:100%">
+                <div class="text">Caption Text</div>
             </div>
-            <div id="tilesView">
-                <div id="tilesContainer"></div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="https://thumbs.dreamstime.com/b/belle-for%C3%AAt-tropicale-%C3%A0-l-itin%C3%A9raire-am%C3%A9nag%C3%A9-pour-amateurs-de-la-nature-de-ka-d-ang-36703721.jpg" style="width:100%">
+                <div class="text">Caption Two</div>
             </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="https://images.ctfassets.net/hrltx12pl8hq/a2hkMAaruSQ8haQZ4rBL9/8ff4a6f289b9ca3f4e6474f29793a74a/nature-image-for-website.jpg?fit=fill&w=480&h=320" style="width:100%">
+                <div class="text">Caption Three</div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 
     </article>

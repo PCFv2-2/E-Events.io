@@ -33,8 +33,7 @@ function startPage($title, $cssName, $jsScipt){
     <!-- Here is our main header that is used across all the pages of our website -->
 
     <header>
-        <div>
-            <div class="container_top_bot container_top_font">
+        <div class="container_top_bot container_top_font">
             <!-- This section gets pushed to the left side-->
             <div class="container_top_bot__section">
                 <div class="container_top_bot__item">
