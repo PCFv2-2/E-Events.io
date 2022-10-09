@@ -1,5 +1,5 @@
 <?php
-include '../frontEnd/header.php';
+include '../FrontEnd/header.php';
 startPage("Connexion");
 ?>
 
@@ -12,6 +12,6 @@ startPage("Connexion");
 </main>
 
 <?php
-include '../frontEnd/footer.php';
+include '../FrontEnd/footer.php';
 endPage();
 ?>

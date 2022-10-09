@@ -1,5 +1,5 @@
 <?php
-    include '../frontEnd/header.php';
+    include '../FrontEnd/header.php';
     startPage("Contact");
 ?>
 
@@ -60,6 +60,6 @@
 
 
 <?php
-    include '../frontEnd/footer.php';
+    include '../FrontEnd/footer.php';
     endPage();
 ?>

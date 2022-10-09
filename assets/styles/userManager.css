@@ -1,74 +1,78 @@
+.user_manager{
+    width: 50%;
+    transition: 0.5s ease-in-out;
+}
 /* Hide scrollbar for Chrome, Safari and Opera */
 .container::-webkit-scrollbar {
     display: none;
 }
-
 /* Hide scrollbar for IE, Edge and Firefox */
 .container {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-}
-.container{
     height: 65%;
     overflow: scroll;
     border-radius: var(--radius1);
-
 }
-
-.user_manager_all_users{
+.user_manager_all_users, .row_user{
     display: grid;
-    grid-template-columns: 1fr 1fr 100px;
+    grid-template-columns: 1fr 1fr 1fr 6em;
     grid-template-rows: 50px;
+}
+.user_manager_all_users{
+    margin: 0;
     border: var(--border);
 }
 
-.column_1, .column_2, .column_3{
+/* Column */
+.column_1, .column_2, .column_3, .column_4{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--secondary);
     border-bottom: var(--border);
+    height: 100%;
 }
+.column_1{grid-column-start: 1;}
+.column_2{grid-column-start: 2;}
+.column_3{grid-column-start: 3;}
+.column_4{grid-column-start: 4;}
 
-.column_1{
-    grid-column-start: 1;
-}
-.column_2{
-    grid-column-start: 2;
-}
-.column_3{
-    grid-column-start: 3;
-}
 
 .row_user{
+    margin: 0;
     grid-column-start: 1;
-    grid-column-end: 4;
-    display: grid;
-    grid-template-columns: 1fr 1fr 100px;
-    grid-template-rows: 50px;
-    background-color: red;
+    grid-column-end: 5;
 }
-.row_user input, .row_user span{
-    min-width: 20px;
-    max-width: 75%;
-    margin: 10px;
+.row_user input, .row_user span, .submit_button{
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin: 1em;
+}
+.row_user input, .row_user span{
+    min-width: 1em;
+    max-width: 75%;
 }
 .modify_icons{
     display: flex;
+    flex-direction: row;
 }
-.user_manager_add{
-    position: absolute;
-    margin: 5px;
-    right: 0;
-    transform: translateX(-70%);
+.submit_button{
+    grid-column-start: 4;
+    height: 3em;
     background-color: var(--secondary);
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
+    border-radius: var(--radius3);
 }
 
+@media screen and (max-width: 1200px) {
+    .user_manager{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .user_manager{
+        width: 100%;
+    }
+}
