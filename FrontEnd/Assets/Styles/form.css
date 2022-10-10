@@ -47,7 +47,7 @@ form{
     margin-right: 1em;
 }
 
-#contact-submit{
+#form-submit{
     background-color: var(--primary);
 }
 
@@ -76,7 +76,7 @@ form{
     height: 10.5em;
 }
 
-#details-Event{
+#detailsEvent{
     height: 16em;
 }
 

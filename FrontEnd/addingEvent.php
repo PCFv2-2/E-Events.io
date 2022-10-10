@@ -15,70 +15,67 @@ startPage("Ajouter un évènement",["form"],[]);
                     <p id="title">ajouter un évènement</p>
                     <div class="form-global">
                         <div id="form-left">
-                            <label for="email">Nom de l'évènement</label><br>
-                            <input type="text" id="email" name="email" class="input3 form-spacing" required><br>
+                            <label for="eventName">Nom de l'évènement</label><br>
+                            <input type="text" id="eventName" name="eventName" class="input3 form-spacing" required><br>
 
-                            <label for="details-Event">Description</label><br>
-                            <textarea id="details-Event" name="details" class="input3 form-spacing" rows="6" cols="" required></textarea><br>
+                            <label for="detailsEvent">Description</label><br>
+                            <textarea id="detailsEvent" name="eventDescription" class="input3 form-spacing" rows="6" required></textarea><br>
 
-                            <label for="email" required>Lieu</label><br>
-                            <input type="text" id="email" name="email" class="input3 form-spacing"><br>
+                            <label for="eventLocation">Lieu</label><br>
+                            <input type="text" id="eventLocation" name="eventLocation" class="input3 form-spacing" required><br>
 
                             <label for="file">Image</label><br>
-                            <input type="file" name="file">
+                            <input type="file" id="file" name="file">
                         </div>
 
                         <div id="form-right">
                             <label for="contact-title">Contact</label><br>
 
-                            <select id="subject" name="subject" class="input2 form-spacing" required>
+                            <select id="contact-title" name="contactType1" class="input2 form-spacing" required>
                                 <option value="" selected disabled hidden>Choisir un type</option>
                                 <option value="organizer">URL</option>
                                 <option value="donator">email</option>
                                 <option value="other">téléphone</option>
                             </select>
-                            <input type="text" id="email" name="email" class="input" required><br>
+                            <input type="text" name="contact1" class="input" required><br>
 
-                            <select id="subject" name="subject" class="input2 form-spacing">
+                            <select name="contactType2" class="input2 form-spacing">
                                 <option value="" selected disabled hidden>Choisir un type</option>
                                 <option value="organizer">URL</option>
                                 <option value="donator">email</option>
                                 <option value="other">téléphone</option>
                             </select>
-                            <input type="text" id="email" name="email" class="input"><br>
+                            <input type="text" name="contact2" class="input"><br>
 
-                            <select id="subject" name="subject" class="input2 form-spacing">
+                            <select name="contactType3" class="input2 form-spacing">
                                 <option value="" selected disabled hidden>Choisir un type</option>
                                 <option value="organizer">URL</option>
                                 <option value="donator">email</option>
                                 <option value="other">téléphone</option>
                             </select>
-                            <input type="text" id="email" name="email" class="input"><br>
+                            <input type="text" name="contact3" class="input"><br>
 
                             <!-- Point Level -->
-                            <label for="email">Palliers</label><br>
-                            <input type="number" min="0" max="1000" id="email" name="email" class="input2 form-spacing" required>
-                            <input type="text" id="email" name="email" class="input" required><br>
+                            <label for="pointLevel">Palliers</label><br>
+                            <input type="number" min="0" max="1000" id="pointLevel" name="pointLevelType1" class="input2 form-spacing" required>
+                            <input type="text" name="pointLevel1" class="input" required><br>
 
-                            <input type="number" min="0" max="1000" id="email" name="email" class="input2 form-spacing">
-                            <input type="text" id="email" name="email" class="input"><br>
+                            <input type="number" min="0" max="1000" name="pointLevelType2" class="input2 form-spacing">
+                            <input type="text" name="pointLevel2" class="input"><br>
 
-                            <input type="number" min="0" max="1000" id="email" name="email" class="input2 form-spacing">
-                            <input type="text" id="email" name="email" class="input"><br>
+                            <input type="number" min="0" max="1000" name="pointLevelType3" class="input2 form-spacing">
+                            <input type="text" name="pointLevel3" class="input"><br>
 
-                            <input type="number" min="0" max="1000" id="email" name="email" class="input2 form-spacing">
-                            <input type="text" id="email" name="email" class="input"><br>
+                            <input type="number" min="0" max="1000" name="pointLevelType4" class="input2 form-spacing">
+                            <input type="text" name="pointLevel4" class="input"><br>
 
-                            <input type="number" min="0" max="1000" id="email" name="email" class="input2 form-spacing">
-                            <input type="text" id="email" name="email" class="input"><br>
-
-
-
+                            <input type="number" min="0" max="1000" name="pointLevelType5" class="input2 form-spacing">
+                            <input type="text" name="pointLevel5" class="input"><br>
                         </div>
                     </div>
                 </div>
                 <br>
-                <input type="submit" value="Ajouter" class="input2" id="contact-submit"/>
+                <input type="submit" value="Ajouter" class="input2" id="form-submit"/>
                 <br>
             </form>
         </article>

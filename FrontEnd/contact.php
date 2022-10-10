@@ -49,7 +49,7 @@
                 </div>
             </div>
             <br>
-            <input type="submit" value="Envoyer" class="input2" id="contact-submit"/>
+            <input type="submit" value="Envoyer" class="input2" id="form-submit"/>
             <br>
         </form>
     </article>

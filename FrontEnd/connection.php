@@ -26,7 +26,7 @@
                     <br/>
                     <div id="validate">
                         <button class="inscription input">S'inscrire</button>
-                        <input type="submit" value="Envoyer" class="input2" id="contact-submit"/>
+                        <input type="submit" value="Envoyer" class="input2" id="form-submit"/>
                     </div>
                     <br/>
                 </div>
