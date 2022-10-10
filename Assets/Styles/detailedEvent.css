@@ -168,7 +168,7 @@
 .other_events-cards-card {
     display: flex;
     flex-direction: column;
-    background-image: url("../images/lorem-image.png");
+    background-image: url("../Images/lorem-image.png");
     height: 120px;
     width: 30%;
     border-radius: var(--radius2);

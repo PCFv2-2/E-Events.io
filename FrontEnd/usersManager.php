@@ -1,8 +1,10 @@
 <?php
+$usersLogin = null;
+$usersMain = null;
 require_once '../Required.php';
-require_once Required::getMainDir() . '/Constants/KeyConstants.php';
-require_once Required::getMainDir() . '/Crypter/Crypter.php';
-include './UsersManagerBackEnd/UsersManagerData.php';
+require_once Required::getMainDir() . '/Constants/keyConstants.php';
+require_once Required::getMainDir() . '/Crypter/crypter.php';
+include './UsersManagerBackEnd/usersManagerData.php';
 include './header.php';
 include './footer.php';
 startPage('Gestion des utilisateurs', array('UsersManager'), array());

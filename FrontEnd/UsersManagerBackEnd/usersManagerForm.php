@@ -1,8 +1,8 @@
 <?php
-header('Location: ../UsersManager.php');
+header('Location: ../usersManager.php');
 require_once '../../Required.php';
 require_once Required::getMainDir() . '/Classes/User/User.php';
-require_once Required::getMainDir() . '/BackOffice/Users/UsersManager.php';
+require_once Required::getMainDir() . '/BackOffice/Users/usersManager.php';
 
 if (!empty($_POST['delete'])) {
     echo "delete";

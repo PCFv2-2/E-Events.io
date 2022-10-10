@@ -1,16 +1,16 @@
 @font-face {
     font-family: "FLORAL";
-    src: url("../fonts/FloralBold.otf") format("opentype");
+    src: url("../Fonts/FloralBold.otf") format("opentype");
 }
 
 @font-face {
     font-family: "Kumbh";
-    src: url("../fonts/Kumbh Sans.ttf") format("truetype");
+    src: url("../Fonts/Kumbh Sans.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Kumbh Extra Bold";
-    src: url("../fonts/KumbhSans-ExtraBold.ttf") format("truetype");
+    src: url("../Fonts/KumbhSans-ExtraBold.ttf") format("truetype");
 }
 
 :root {
@@ -23,7 +23,7 @@
     --secondary: #CD9FCC;
     --white: #fff;
 
-    /* fonts */
+    /* Fonts */
     --text: Kumbh, Roboto, sans-serif;
     --title: FLORAL, Roboto, sans-serif;
 

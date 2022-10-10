@@ -1,7 +1,7 @@
 <?php
 //require_once '../../Required.php';
-require_once Required::getMainDir() . '/Constants/KeyConstants.php';
-require_once Required::getMainDir() . '/Crypter/Crypter.php';
+require_once Required::getMainDir() . '/Constants/keyConstants.php';
+require_once Required::getMainDir() . '/Crypter/crypter.php';
 /**
  * @param User $user
  * @return mixed|null

@@ -1,6 +1,6 @@
 <?php
 //require_once '../../Required.php';
-require_once Required::getMainDir() . '/Constants/DataBaseConstants.php';
+require_once Required::getMainDir() . '/Constants/dataBaseConstants.php';
 
 class DataBase
 {
