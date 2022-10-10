@@ -1,0 +1,35 @@
+.confirm-message{
+    width: 30em;
+    height: 20em;
+    background-color: var(--light);
+    border-radius: var(--radius3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.confirm-message__title{
+    margin: 0 0 1em 0;
+}
+.confirm-message span{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+}
+.confirm_message__button{
+    margin: 1em 0 0 0;
+    padding: 0.5em 1em;
+    border-radius: var(--radius1);
+    border: var(--border);
+}
+
+.secondary-color{
+    background-color: var(--secondary);
+}
+.confirm-message p{
+    margin: 0;
+    padding: 0.3em;
+    background-color: var(--light_primary);
+    border-left: var(--border);
+    border-right: var(--border);
+}

@@ -1,0 +1,97 @@
+footer {
+
+    bottom: 0;
+    width: 100%;
+}
+
+main {
+    margin: 0 auto;
+    padding: 30px 20px;
+
+}
+
+#title{
+    font-family: var(--title);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    color: var(--black);
+    margin-left: 0.5em;
+}
+
+form{
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--light);
+    margin: 10% 10% 10% 10%;
+    border-radius: var(--radius1);
+}
+
+
+#contact{
+    display: flex;
+    justify-content: space-around;
+}
+
+#name-contact{
+    display: flex;
+    justify-content: space-around;
+}
+
+#contact-left{
+    margin-left: 1em;
+}
+
+#contact-right{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#contact-submit{
+    background-color: var(--primary);
+}
+
+.input{
+    width : 20em;
+    height: 2.5em;
+    border-radius: var(--radius1);
+    border: var(--border);
+}
+
+.input2{
+    border: var(--border);
+    width : 9.5em;
+    height: 2.5em;
+    border-radius: var(--radius1);
+}
+
+#details{
+    height: 10.5em;
+}
+
+#last-name{
+    margin-left: 0.5em;
+}
+
+.connexion{
+    display: flex;
+    justify-content: right;
+}
+
+.icon{
+    margin-top: 0.5em;
+    margin-right: 1em;
+}
+
+.inscription{
+    background: var(--light_primary);
+}
+
+@media screen and (max-width: 768px) {
+    #contact {
+        flex-direction: column;
+    }
+}
