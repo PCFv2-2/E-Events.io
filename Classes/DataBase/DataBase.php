@@ -1,7 +1,5 @@
 <?php
-/* NOT REQUIRE
-require_once '../../Required.php';
-*/
+//require_once '../../Required.php';
 require_once Required::getMainDir() . '/Constants/DataBaseConstants.php';
 
 class DataBase
