@@ -53,8 +53,5 @@ function startPage($title, $cssName, $jsScipt){
         </ul>
         <!-- !-->
     </header>
-
-
-
 <?php
 }?>
