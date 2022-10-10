@@ -1,4 +1,10 @@
 <?php
+session_start();
+echo $_SESSION['roleId'];
+if ($_SESSION['roleId'] != 1) {
+    echo 'pas bon';
+    header('Location: ./errorPage1.html');
+}
 require_once '../Required.php';
 require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';

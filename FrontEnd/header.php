@@ -45,8 +45,5 @@ function startPage($title, $cssName, $jsScipt){
             </div>
         </div>
     </header>
-
-
-
 <?php
 }?>
