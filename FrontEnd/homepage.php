@@ -1,5 +1,5 @@
 <?php
-include '../FrontEnd/header.php';
+include 'header.php';
 startPage("Accueil",["carousel","detailedEvent"],["https://kit.fontawesome.com/2c7fc28a2f","./Assets/Javascript/carousel"]);
 
 $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement")
@@ -80,6 +80,6 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
 </main>
 
 <?php
-include '../FrontEnd/footer.php';
+include 'footer.php';
 endPage();
 ?>

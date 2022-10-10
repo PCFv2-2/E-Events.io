@@ -41,7 +41,7 @@ function startPage($title, $cssName, $jsScipt){
             <!-- This section gets pushed to the right side-->
             <div class="container_top_bot__section">
                 <div class="container_top_bot__item container_top_botButton"><a href="contact.php"><i class="fa fa-envelope-o fa-lg"></i></a></div>
-                <div class="container_top_bot__item container_top_botButton"><a href="connection.php"><i class="fa fa-user-o fa-lg"></i></a></div>
+                <div class="container_top_bot__item container_top_botButton"><a href="login.php"><i class="fa fa-user-o fa-lg"></i></a></div>
             </div>
         </div>
     </header>
