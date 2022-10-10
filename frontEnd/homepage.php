@@ -1,6 +1,9 @@
 <?php
 include '../frontEnd/header.php';
-startPage("Accueil",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../assets/javascript/carousel"]);
+startPage("Accueil",["carousel","DetailedEvent"],["https://kit.fontawesome.com/2c7fc28a2f","../assets/javascript/carousel"]);
+
+$listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement")
+
 ?>
 
 <main>
@@ -8,11 +11,27 @@ startPage("Accueil",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../a
     <article>
         <?php
             //TO DO : boolean need to get from the database if there is a season
-            $isSeason = false;
+            $isSeason = true;
 
             if ($isSeason){
         ?>
                 <h1>venez voter pour votre évènement préféré !</h1>
+                <section class="other_events">
+                        <div class="other_events-cards">
+                        <?php
+                        foreach ($listNamesOfEvents as $eventName) {
+                            ?>
+                            <a class="other_events-cards-card" href="#">
+                                <div class="card-bottom">
+                                    <h3 class="card-bottom-title"><?php echo $eventName?></h3>
+                                    <i class="fa fa-arrow-right"></i>
+                                </div>
+                            </a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </section>
         <?php
             }
             else{
@@ -22,8 +41,8 @@ startPage("Accueil",["carousel"],["https://kit.fontawesome.com/2c7fc28a2f","../a
             }
         ?>
         <br/>
+        <h1>Voici les évènements de la saison précédente :</h1>
         <div class="slideshow-container">
-
             <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
                 <div class="numbertext">1 / 3</div>
