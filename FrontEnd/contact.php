@@ -13,8 +13,8 @@
         <form>
             <div>
                 <p id="title">contact</p>
-                <div id="contact">
-                    <div id="contact-left">
+                <div class="form-global">
+                    <div id="form-left">
                         <label for="subject">Sujet</label><br>
                         <select id="subject" name="subject" class="input">
                             <option value="" selected disabled hidden>Choisir un sujet</option>
@@ -42,7 +42,7 @@
                         <input type="text" id="email" name="email" class="input">
                     </div>
 
-                    <div id="contact-right">
+                    <div id="form-right">
                         <label for="details">Détails</label><br>
                         <textarea id="details" name="details" class="input" rows="6" cols=""></textarea>
                     </div>

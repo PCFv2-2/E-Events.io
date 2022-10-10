@@ -5,7 +5,6 @@ footer {
 
 main {
     margin: 0 auto;
-    padding: 30px 20px;
 }
 
 #title{
@@ -24,12 +23,12 @@ form{
     justify-content: center;
     flex-direction: column;
     background-color: var(--light);
-    margin: 10% 10% 10% 10%;
+    margin: 2.5% 10% 2.5% 10%;
     border-radius: var(--radius1);
 }
 
 
-#contact{
+.form-global{
     display: flex;
     justify-content: space-around;
 }
@@ -39,11 +38,11 @@ form{
     justify-content: space-around;
 }
 
-#contact-left{
+#form-left{
     margin-left: 1em;
 }
 
-#contact-right{
+#form-right{
     margin-left: 1em;
     margin-right: 1em;
 }
@@ -66,8 +65,19 @@ form{
     border-radius: var(--radius1);
 }
 
+.input3{
+    border: var(--border);
+    width : 30em;
+    height: 2.5em;
+    border-radius: var(--radius1);
+}
+
 #details{
     height: 10.5em;
+}
+
+#details-Event{
+    height: 16em;
 }
 
 #last-name{
@@ -95,6 +105,10 @@ form{
 #validate{
     display: flex;
     justify-content: right;
+}
+
+.form-spacing{
+    margin-bottom: 0.5em;
 }
 
 @media screen and (max-width: 768px) {
