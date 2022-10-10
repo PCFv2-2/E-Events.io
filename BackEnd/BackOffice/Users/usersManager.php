@@ -1,7 +1,7 @@
 <?php
-//require_once '../../Required.php';
-require_once Required::getMainDir() . '/Constants/keyConstants.php';
-require_once Required::getMainDir() . '/Crypter/crypter.php';
+//require_once '../../../Required.php';
+require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
+require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
 /**
  * @param User $user
  * @return mixed|null
@@ -110,5 +110,3 @@ function updateUser(User $user)
 
     }
 }
-
-$user = new User(-1, $login = 'Guillaume', $role = UsersRolesEnum::DONOR, $password = 'test');

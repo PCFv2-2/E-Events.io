@@ -7,14 +7,14 @@ function startPage($title, $cssName, $jsScipt){
         <meta name="viewport" content="width=device-width" />
 
         <title> <?php echo $title;?> </title>
-        <link rel="icon" type="image/x-icon" href="../Assets/Images/logo_orange_no_text.ico">
+        <link rel="icon" type="image/x-icon" href="Assets/Images/logo_orange_no_text.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../Assets/Styles/main.css" type="text/css"/>
-        <link rel="stylesheet" href="../Assets/Styles/headerAndFooter.css" type="text/css"/>
+        <link rel="stylesheet" href="Assets/Styles/main.css" type="text/css"/>
+        <link rel="stylesheet" href="Assets/Styles/headerAndFooter.css" type="text/css"/>
         <?php
             //stylesheet
             foreach($cssName as $stylesheet){?>
-                <link rel="stylesheet" href="../assets/styles/<?php echo $stylesheet; ?>.css" type="text/css"/>
+                <link rel="stylesheet" href="./Assets/Styles/<?php echo $stylesheet; ?>.css" type="text/css"/>
             <?php
             }
             //js script
@@ -33,7 +33,7 @@ function startPage($title, $cssName, $jsScipt){
             <div class="container_top_bot__section">
                 <div class="container_top_bot__item">
                     <a href="homepage.php">
-                        <img width="30" src="../Assets/Images/logo_Black_No_Text.png" alt="logo du site E-Events.IO"/>
+                        <img width="30" src="Assets/Images/logo_Black_No_Text.png" alt="logo du site E-Events.IO"/>
                     </a>
                 </div>
                 <div class="container_top_bot__item container_top_botButton"><a href="homepage.php">e-event.io</a></div>

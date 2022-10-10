@@ -1,6 +1,6 @@
 <?php
 //require_once '../../Required.php';
-require_once Required::getMainDir() . '/Constants/dataBaseConstants.php';
+require_once Required::getMainDir() . '/BackEnd/Constants/dataBaseConstants.php';
 
 class DataBase
 {
@@ -40,10 +40,10 @@ class DataBase
 //            $dbResult = mysqli_query($this->dbLink, $query);
             $queryPrepared = $this->dbLink->prepare($query);
 
-            if (is_bool($queryPrepared)){
+            if (is_bool($queryPrepared)) {
                 throw new RuntimeException('Error during querying');
             }
-            if ($types != null){
+            if ($types != null) {
                 $queryPrepared->bind_param($types, ...$params);
             }
             $queryPrepared->execute();
@@ -62,7 +62,7 @@ class DataBase
         try {
             $queryPrepared = $this->dbLink->prepare($query);
 
-            if (is_bool($queryPrepared)){
+            if (is_bool($queryPrepared)) {
                 throw new RuntimeException('Error during querying');
             }
 

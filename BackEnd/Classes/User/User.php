@@ -1,5 +1,6 @@
 <?php
 //require_once '../../Required.php';
+
 class User
 {
     private $id;

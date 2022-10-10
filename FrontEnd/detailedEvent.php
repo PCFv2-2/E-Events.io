@@ -1,7 +1,7 @@
 <?php
 require_once "header.php";
 require_once "footer.php";
-startPage("Nom de l'évènement", array('DetailedEvent'), array());
+startPage("Nom de l'évènement", array('detailedEvent'), array());
 //$points = $_SESSION["nbPoints"];
 $points = 15;
 $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement")
@@ -9,7 +9,7 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
 <section class="detailed_event">
     <div class="detailed_event-left_panel">
         <h1 class="detailed_event-left_panel-title">tournoi smash au stade de france</h1>
-        <img src="../Assets/Images/lorem-image.png" class="detailed_event-left_panel-image"
+        <img src="Assets/Images/lorem-image.png" class="detailed_event-left_panel-image"
              alt="An image relative to the event"/>
         <p class="detailed_event-left_panel-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor est et condimentum semper. Aenean

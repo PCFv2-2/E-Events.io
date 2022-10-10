@@ -1,5 +1,4 @@
 <?php
-
 class UsersRolesEnum
 {
     public const NO_ROLE = 0;

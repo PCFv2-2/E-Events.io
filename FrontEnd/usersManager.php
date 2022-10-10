@@ -1,13 +1,16 @@
 <?php
-$usersLogin = null;
-$usersMain = null;
 require_once '../Required.php';
-require_once Required::getMainDir() . '/Constants/keyConstants.php';
-require_once Required::getMainDir() . '/Crypter/crypter.php';
-include './UsersManagerBackEnd/usersManagerData.php';
+require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
+require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
+
+$dbLogin = new DataBase(DataBaseEnum::LOGINS_READ);
+$dbMain = new DataBase(DataBaseEnum::MAIN_READ);
+$usersLogin = $dbLogin->selectQueryAndFetch('SELECT * FROM USERS');
+$usersMain = $dbMain->selectQueryAndFetch('SELECT ROLE_ID FROM USERS');
+
 include './header.php';
 include './footer.php';
-startPage('Gestion des utilisateurs', array('UsersManager'), array());
+startPage('Gestion des utilisateurs', array('usersManager'), array());
 ?>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
@@ -15,7 +18,7 @@ startPage('Gestion des utilisateurs', array('UsersManager'), array());
     <h2>Gestion des utilisateurs</h2>
     <div class="container">
         <!-- Form 1 -->
-        <form action="UsersManagerBackEnd/usersManagerForm.php" method="post" class="user_manager_all_users" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
+        <form action="../BackEnd/BackOffice/Users/usersManagerForm.php" method="post" class="user_manager_all_users" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
             <span class="column_1">LOGIN</span>
             <span class="column_2">PASSWORD</span>
             <span class="column_3">ROLE_ID</span>
@@ -53,7 +56,7 @@ startPage('Gestion des utilisateurs', array('UsersManager'), array());
         </form>
     </div>
     <!-- Form 2 -->
-    <form action="UsersManagerBackEnd/usersManagerFormAdd.php" method="post" class="border_r row_user" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
+    <form action="../BackEnd/BackOffice/Users/usersManagerFormAdd.php" method="post" class="border_r row_user" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
         <input required type="text" name="login" placeholder="Michel"/>
         <input required type="password" name="password" placeholder="123456"/>
         <input required type="text" name="role" placeholder="1"/>
@@ -65,10 +68,3 @@ startPage('Gestion des utilisateurs', array('UsersManager'), array());
 <?php
 endPage();
 ?>
-<script type="text/javascript">
-    function sure(myVar) {
-        if (confirm('Voulez vous supprimer?')) {
-            window.location.href = "supprimer.php?Nom=" + myVar;
-        }
-    }
-</script>

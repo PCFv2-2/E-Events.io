@@ -1,6 +1,5 @@
 <?php
-
-require_once '../../Required.php';
+require_once '../../../Required.php';
 
 function addSeason(Season $season){
     try {

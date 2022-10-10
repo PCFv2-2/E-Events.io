@@ -1,8 +1,7 @@
 <?php
-header("Location: ../usersManager.php");
-require_once '../../Required.php';
-require_once Required::getMainDir() . '/Classes/User/User.php';
-require_once Required::getMainDir() . '/BackOffice/Users/usersManager.php';
+header("Location: ../../../FrontEnd/usersManager.php");
+require_once '../../../Required.php';
+require_once Required::getMainDir() . '/BackEnd/BackOffice/Users/usersManager.php';
 
 $userLogin = $_POST['login'];
 $userPassword = $_POST['password'];

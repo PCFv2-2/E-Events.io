@@ -1,5 +1,4 @@
 <?php
-
 class Season
 {
     private $id;
@@ -13,16 +12,14 @@ class Season
         echo is_null($dateStart);
         if (is_null($dateStart)) {
             $this->dateStart = new DateTime();
-        }
-        else {
+        } else {
             $this->dateStart = $dateStart;
         }
 
         echo is_null($dateEnd);
         if (is_null($dateEnd)) {
             $this->dateEnd = new DateTime();
-        }
-        else {
+        } else {
             $this->dateEnd = $dateEnd;
         }
     }
