@@ -9,9 +9,6 @@ function endPage(){
                     <div class="container_top_bot__item container_top_botButton"><a href="conditionsUtilisation.php">Conditions d'utilisation</a></div>
                 </div>
         </div>
-
-        <p></p>
-        <p></p>
     </footer>
     </body>
     </html>
