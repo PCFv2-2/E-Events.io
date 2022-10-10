@@ -1,0 +1,53 @@
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 4rem;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.error1 {
+    background-image: url("../images/errorPages/lighthouse.jpg");
+}
+
+h1 {
+    text-shadow: 0 1px 25px #e8e7e6;
+    font-size: 3rem;
+}
+
+.error-return-btn {
+    display: block;
+    background: rgba(255, 255, 255, 0.15);
+    border: var(--border);
+    border-radius: var(--radius2);
+    padding: 1.25rem 9rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.error-return-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.1);
+}
+
+.error-return-btn a {
+    font-size: 1.5rem;
+}
+
+
+@media (max-width: 600px) {
+    .error-return-btn a {
+        font-size: 2rem;
+    }
+}
