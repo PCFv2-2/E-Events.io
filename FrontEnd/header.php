@@ -11,6 +11,7 @@ function startPage($title, $cssName, $jsScipt){
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="Assets/Styles/main.css" type="text/css"/>
         <link rel="stylesheet" href="Assets/Styles/headerAndFooter.css" type="text/css"/>
+        <script src="./Assets/Javascript/setDropdown.js"></script>
         <?php
             //stylesheet
             foreach($cssName as $stylesheet){?>
@@ -44,6 +45,13 @@ function startPage($title, $cssName, $jsScipt){
                 <div class="container_top_bot__item container_top_botButton"><a href="login.php"><i class="fa fa-user-o fa-lg"></i></a></div>
             </div>
         </div>
+        <!-- Dropdown Menu !-->
+        <ul class="dropdown">
+            <li class="dropdown__li underline"><span><span class="material-symbols-outlined">logout</span> Se déconnecter</span></li>
+            <li class="dropdown__li underline"><span><span class="material-symbols-outlined">settings</span> Gestion des utilisateurs</span></li>
+            <li class="dropdown__li"><span><span class="material-symbols-outlined">tune</span> Gestion des évènements</span></li>
+        </ul>
+        <!-- !-->
     </header>
 
 
