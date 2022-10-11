@@ -8,7 +8,7 @@
     <article>
         <!-- Registration form -->
         <!-- subject, fist-name, last-name, email, details -->
-        <form method="post">
+        <form method="post" id="formConnection">
             <div>
                 <p id="title">connexion</p>
                 <div>

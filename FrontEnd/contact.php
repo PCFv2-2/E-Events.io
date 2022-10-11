@@ -10,7 +10,7 @@
     <article>
         <!-- Registration form -->
         <!-- subject, fist-name, last-name, email, details -->
-        <form>
+        <form id="formContact">
             <div>
                 <p id="title">contact</p>
                 <div class="form-global">
