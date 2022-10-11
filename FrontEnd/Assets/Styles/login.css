@@ -1,0 +1,105 @@
+.login {
+    display: flex;
+    background: var(--light);
+    border: var(--border);
+    align-items: center;
+    justify-content: space-between;
+    align-self: center;
+    width: 60%;
+    margin: 5rem auto;
+    border-radius: var(--radius3);
+    height: 65%;
+    padding: 0.5rem 0.7rem 0.5rem 4rem;
+}
+
+/* LEFT PANEL */
+
+.login-left_panel {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 55%;
+    row-gap: 2rem;
+}
+
+.login-title {
+    margin: 0.5rem 2rem auto 2rem;
+    font-size: 40px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+
+}
+
+.login-form-id {
+    display: flex;
+    column-gap: 2rem;
+    align-items: center;
+}
+
+.login-form-id label {
+    margin-left: auto;
+
+}
+
+.login-form-input {
+    width : 80%;
+    height: 2.5em;
+    border-radius: var(--radius1);
+    border: var(--border);
+    padding-left: 0.75rem;
+}
+
+.login-form-input-error {
+    border: 3px solid #d32802;
+}
+
+.login-form-error_text {
+    text-align: right;
+}
+
+.login-form-error_text a {
+    text-decoration: underline;
+}
+
+.login-form-submit {
+    display: flex;
+    height: auto;
+    column-gap: 2rem;
+}
+
+.login-form-submit button {
+    border: var(--border);
+    border-radius: var(--radius1);
+    width: 25%;
+    height: 2.75rem;
+}
+
+.login-form-signup {
+    margin-left: auto;
+}
+
+.login-form-login {
+    background: var(--primary);
+}
+
+/* RIGHT PANEL */
+.login-right_panel {
+    width: 40%;
+    height: 95%;
+    background: var(--secondary);
+    border-radius: var(--radius2);
+}
+
+.login-right_panel img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius2);
+}

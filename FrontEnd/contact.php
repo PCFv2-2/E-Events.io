@@ -20,6 +20,7 @@
                             <option value="" selected disabled hidden>Choisir un sujet</option>
                             <option value="organizer">Je veux devenir organisateur</option>
                             <option value="donator">Je veux devenir donateur</option>
+                            <option value="forgottenpassword">J'ai oublié mon mot de passe</option>
                             <option value="other">Autre</option>
                         </select><br>
 
