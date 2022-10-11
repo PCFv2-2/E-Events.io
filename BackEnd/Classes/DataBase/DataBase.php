@@ -51,7 +51,7 @@ class DataBase
             $result = $queryPrepared->get_result();
 
         } catch (Exception $e) {
-            throw new RuntimeException('Error during querying');
+            throw $e;
         }
 
         return $result->fetch_all();
@@ -69,8 +69,9 @@ class DataBase
             $queryPrepared->bind_param($types, ...$params);
             $queryPrepared->execute();
 
+            return $queryPrepared->insert_id; //retourne l'id que je viens d'inserer
         } catch (Exception $e) {
-            throw new RuntimeException('Error during querying');
+            throw $e;
         }
     }
 

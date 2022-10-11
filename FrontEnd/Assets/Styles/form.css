@@ -111,6 +111,27 @@ form{
     margin-bottom: 0.5em;
 }
 
+#tooltip #tip {
+    visibility: hidden;
+    width: 30em;
+    margin-left: 0.5em;
+    position: absolute;
+    background-color: var(--light_primary);
+    border-radius: var(--radius1);
+    border-color: var(--black);
+    border-width: 1px;
+
+}
+
+#tooltip:hover #tip {
+    visibility: visible;
+
+}
+
+#tooltip #tip::after {
+    content: "";
+}
+
 @media screen and (max-width: 768px) {
     #contact {
         flex-direction: column;
