@@ -43,3 +43,33 @@ a{
 .container_top_botButton {
     cursor: pointer;
 }
+
+
+.dropdown{
+    position: absolute;
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 18em;
+    right: 1;
+    border-radius: var(--radius1);
+    list-style-type: none;
+    background-color: var(--white);
+    border: var(--border);
+    transition: 0.3s ease-in-out;
+}
+.dropdown__li{
+    padding: 1em;
+    margin: 0;
+    cursor: pointer;
+}
+.dropdown__li span{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+    padding-right: 1em;
+}
+.underline{
+    border-bottom: var(--border);
+}
