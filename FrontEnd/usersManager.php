@@ -1,5 +1,5 @@
 <?php
-require_once 'Required.php';
+require_once '../Required.php';
 require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
 
