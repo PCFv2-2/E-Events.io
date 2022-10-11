@@ -71,5 +71,11 @@ if (isset($_GET['error'])) {
         alert('Vous venez de voter pour l\'évènement suivant : ' + <?php echo json_encode($eventName[0][0]); ?>);
     </script>
     <?php
+} else if (isset($_GET['date'])){
+    ?>
+    <script>
+        alert('Le vote ne peut pas commencer tant que la saison n\'est pas terminé !');
+    </script>
+    <?php
 }
 endPage();
