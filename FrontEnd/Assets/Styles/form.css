@@ -5,7 +5,6 @@ footer {
 
 main {
     margin: 0 auto;
-    padding: 30px 20px;
 }
 
 #title{
@@ -24,12 +23,12 @@ form{
     justify-content: center;
     flex-direction: column;
     background-color: var(--light);
-    margin: 10% 10% 10% 10%;
+    margin: 2.5% 10% 2.5% 10%;
     border-radius: var(--radius1);
 }
 
 
-#contact{
+.form-global{
     display: flex;
     justify-content: space-around;
 }
@@ -39,16 +38,16 @@ form{
     justify-content: space-around;
 }
 
-#contact-left{
+#form-left{
     margin-left: 1em;
 }
 
-#contact-right{
+#form-right{
     margin-left: 1em;
     margin-right: 1em;
 }
 
-#contact-submit{
+#form-submit{
     background-color: var(--primary);
 }
 
@@ -66,8 +65,19 @@ form{
     border-radius: var(--radius1);
 }
 
+.input3{
+    border: var(--border);
+    width : 30em;
+    height: 2.5em;
+    border-radius: var(--radius1);
+}
+
 #details{
     height: 10.5em;
+}
+
+#detailsEvent{
+    height: 16em;
 }
 
 #last-name{
@@ -95,6 +105,31 @@ form{
 #validate{
     display: flex;
     justify-content: right;
+}
+
+.form-spacing{
+    margin-bottom: 0.5em;
+}
+
+#tooltip #tip {
+    visibility: hidden;
+    width: 30em;
+    margin-left: 0.5em;
+    position: absolute;
+    background-color: var(--light_primary);
+    border-radius: var(--radius1);
+    border-color: var(--black);
+    border-width: 1px;
+
+}
+
+#tooltip:hover #tip {
+    visibility: visible;
+
+}
+
+#tooltip #tip::after {
+    content: "";
 }
 
 @media screen and (max-width: 768px) {

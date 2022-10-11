@@ -16,6 +16,7 @@ function startPage($title, $cssName, $jsScipt){
         <link rel="stylesheet" href="Assets/Styles/headerAndFooter.css" type="text/css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <script src="./Assets/Javascript/setDropdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <?php
             //stylesheet
             foreach($cssName as $stylesheet){?>

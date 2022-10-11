@@ -1,5 +1,5 @@
 <?php
-    include 'header.php';
+    include '../FrontEnd/header.php';
     startPage("Contact",["form"],[]);
 ?>
 
@@ -13,14 +13,14 @@
         <form>
             <div>
                 <p id="title">contact</p>
-                <div id="contact">
-                    <div id="contact-left">
+                <div class="form-global">
+                    <div id="form-left">
                         <label for="subject">Sujet</label><br>
                         <select id="subject" name="subject" class="input">
                             <option value="" selected disabled hidden>Choisir un sujet</option>
                             <option value="organizer">Je veux devenir organisateur</option>
                             <option value="donator">Je veux devenir donateur</option>
-                            <option value="donator">J'ai oublié mon mot de passe</option>
+                            <option value="forgottenpassword">J'ai oublié mon mot de passe</option>
                             <option value="other">Autre</option>
                         </select><br>
 
@@ -43,14 +43,14 @@
                         <input type="text" id="email" name="email" class="input">
                     </div>
 
-                    <div id="contact-right">
+                    <div id="form-right">
                         <label for="details">Détails</label><br>
                         <textarea id="details" name="details" class="input" rows="6" cols=""></textarea>
                     </div>
                 </div>
             </div>
             <br>
-            <input type="submit" value="Envoyer" class="input2" id="contact-submit"/>
+            <input type="submit" value="Envoyer" class="input2" id="form-submit"/>
             <br>
         </form>
     </article>
@@ -61,6 +61,6 @@
 
 
 <?php
-    include 'footer.php';
+    include '../FrontEnd/footer.php';
     endPage();
 ?>
