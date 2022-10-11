@@ -10,7 +10,7 @@ startPage("Ajouter un évènement",["form"],[]);
         <article>
             <!-- Registration form -->
             <!-- subject, fist-name, last-name, email, details -->
-            <form method="post" action="addingEventPost.php" enctype="multipart/form-data">
+            <form method="post" action="addingEventPost.php" enctype="multipart/form-data" id="formAddingEvent">
                 <div>
                     <p id="title">ajouter un évènement</p>
                     <div class="form-global">
