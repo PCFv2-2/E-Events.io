@@ -1,13 +1,15 @@
 <?php
-require_once '../Required.php';
+require_once 'Required.php';
 require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
 
 $dbLogin = new DataBase(DataBaseEnum::LOGINS_READ);
 $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
 $usersLogin = $dbLogin->selectQueryAndFetch('SELECT * FROM USERS');
+
 include './header.php';
 include './footer.php';
+
 startPage('Gestion des utilisateurs', array('usersManager'), array());
 ?>
 <link rel="stylesheet"
