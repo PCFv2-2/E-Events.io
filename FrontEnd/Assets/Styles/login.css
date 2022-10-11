@@ -8,7 +8,7 @@
     width: 60%;
     margin: 5rem auto;
     border-radius: var(--radius3);
-    height: 65%;
+    height: 30rem;
     padding: 0.5rem 0.7rem 0.5rem 4rem;
 }
 
@@ -78,9 +78,15 @@
 .login-form-submit button {
     border: var(--border);
     border-radius: var(--radius1);
-    width: 25%;
+    width: 10rem;
     height: 2.75rem;
+    transition: transform 0.2s ease-in-out;
 }
+
+.login-form-submit button:hover {
+    transform: scale(1.05);
+}
+
 
 .login-form-signup {
     margin-left: auto;
@@ -102,4 +108,69 @@
     width: 100%;
     height: 100%;
     border-radius: var(--radius2);
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1200px) {
+
+    .login {
+        padding: 1rem;
+    }
+
+    .login-right_panel {
+        display: none;
+    }
+
+    .login-left_panel {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .login-form-submit {
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 1.5rem;
+    }
+
+    .login-form-signup {
+        margin-left: initial;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .login-title {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0.5rem 0 0.1rem 0;
+    }
+}
+
+@media (max-width: 644px) {
+    .login-form-error_text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .login {
+        height: 35rem;
+
+    }
+
+    .login-form-id {
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+        margin-top: 0.6rem;
+    }
+
+    .login-form-id label {
+        margin: 0 auto;
+    }
+
+    .login-form-input {
+        width: 100%;
+    }
 }
