@@ -1,10 +1,4 @@
 <?php
-session_start();
-echo $_SESSION['roleId'];
-if ($_SESSION['roleId'] != 1) {
-    echo 'pas bon';
-    header('Location: ./errorPage1.html');
-}
 require_once '../Required.php';
 require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
@@ -14,6 +8,10 @@ $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
 $usersLogin = $dbLogin->selectQueryAndFetch('SELECT * FROM USERS');
 include './header.php';
 include './footer.php';
+
+if ($_SESSION['roleId'] != 1) {
+    header('Location: ./errorPage1.html');
+}
 startPage('Gestion des utilisateurs', array('usersManager'), array());
 ?>
 <link rel="stylesheet"
