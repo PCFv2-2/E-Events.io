@@ -14,13 +14,13 @@
                 <div>
                     <div class="connexion">
                         <label for="user-name" class="icon"><i class="fa fa-user-o fa-lg"></i></label>
-                        <input type="text" id="user-name" name="user-name" class="input" placeholder="nom d'utilisateur">
+                        <input type="text" id="user-name" name="user-name" class="input" placeholder="nom d'utilisateur" required>
                         <br>
                     </div>
                     <br/>
                     <div class="connexion">
                         <label for="password" class="icon"><i class="fa fa-lock fa-lg"></i></label>
-                        <input type="text" id="password" name="password" class="input" placeholder="mot de passe">
+                        <input type="text" id="password" name="password" class="input" placeholder="mot de passe" required>
                         <br>
                     </div>
                     <br/>
