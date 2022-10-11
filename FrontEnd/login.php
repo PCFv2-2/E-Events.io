@@ -7,7 +7,7 @@ startPage("Connexion", ["login"], []);
     <!-- Login form -->
     <div class="login-left_panel">
         <h1 class="login-title">connexion</h1>
-        <form method="post" class="login-form">
+        <form method="post" class="login-form" action="checkLogins.php">
             <div class="login-form-id">
                 <label for="username" class="icon"><i class="fa fa-user-o fa-2x"></i></label>
                 <input type="text" id="username" name="username" class="login-form-input <?php

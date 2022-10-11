@@ -10,6 +10,9 @@ $usersLogin = $dbLogin->selectQueryAndFetch('SELECT * FROM USERS');
 include './header.php';
 include './footer.php';
 
+if ($_SESSION['roleId'] != 1) {
+    header('Location: ./errorPage1.html');
+}
 startPage('Gestion des utilisateurs', array('usersManager'), array());
 ?>
 <link rel="stylesheet"
