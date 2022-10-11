@@ -6,8 +6,6 @@ require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
 $dbLogin = new DataBase(DataBaseEnum::LOGINS_READ);
 $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
 $usersLogin = $dbLogin->selectQueryAndFetch('SELECT * FROM USERS');
-$usersMain = $dbMain->selectQueryAndFetch('SELECT ROLE_ID FROM USERS');
-
 include './header.php';
 include './footer.php';
 startPage('Gestion des utilisateurs', array('usersManager'), array());
@@ -19,9 +17,9 @@ startPage('Gestion des utilisateurs', array('usersManager'), array());
     <div class="container">
         <!-- Form 1 -->
         <form action="../BackEnd/BackOffice/Users/usersManagerForm.php" method="post" class="user_manager_all_users" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
-            <span class="column_1">LOGIN</span>
-            <span class="column_2">PASSWORD</span>
-            <span class="column_3">ROLE_ID</span>
+            <span class="column_1">Utilisateur</span>
+            <span class="column_2">Mot de passe</span>
+            <span class="column_3">Rôle</span>
             <span class="column_4">Supprimer</span>
             <?php
             for ($i = 0; $i < sizeof($usersLogin); ++$i) {
@@ -40,7 +38,13 @@ startPage('Gestion des utilisateurs', array('usersManager'), array());
                     <input type="text" readonly name="login[]"
                            value="<?php echo safeDecrypt($usersLogin[$i][1], KEY) ?>"/>
                     <input type="password" disabled placeholder="*********"/>
-                    <input type="text" name="role[]" placeholder="<?php echo $usersMain[$i][0] ?>"/>
+                    <select name="role[]">
+                        <option value="">Rôle : <?php echo ($dbMain->selectQueryAndFetch('SELECT ROLE_NAME FROM `ROLES` INNER JOIN `USERS` ON `ROLES`.ROLE_ID = `USERS`.`ROLE_ID` WHERE USER_ID = ?',array($usersLogin[$i][0]),'i')[0][0]) ?></option>
+                        <option value="Administrateur">Administrateur</option>
+                        <option value="Membre du jury">Membre du jury</option>
+                        <option value="Organisateur">Organisateur</option>
+                        <option value="Donateur">Donateur</option>
+                    </select>
                     <div class="modify_icons">
                         <input type="checkbox" name="delete[]"
                                value="<?php echo safeDecrypt($usersLogin[$i][1], KEY) ?>">
@@ -59,7 +63,12 @@ startPage('Gestion des utilisateurs', array('usersManager'), array());
     <form action="../BackEnd/BackOffice/Users/usersManagerFormAdd.php" method="post" class="border_r row_user" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
         <input required type="text" name="login" placeholder="Michel"/>
         <input required type="password" name="password" placeholder="123456"/>
-        <input required type="text" name="role" placeholder="1"/>
+        <select name="role">
+            <option value="Administrateur">Administrateur</option>
+            <option value="Membre du jury">Membre du jury</option>
+            <option value="Organisateur">Organisateur</option>
+            <option value="Donateur">Donateur</option>
+        </select>
         <button class="submit_button" type="submit">
             <span class="material-symbols-outlined">add</span>
         </button>
