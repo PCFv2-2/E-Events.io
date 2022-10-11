@@ -1,15 +1,12 @@
 <?php
 require_once "header.php";
 require_once "footer.php";
-require_once 'Required.php';
+require_once '../Required.php';
 require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 
 if (!isset($_GET['id'])) {
     header("Location: errorPage1.html");
 }
-
-session_start();
-$_SESSION['role'] = 4;
 
 $id = intval($_GET["id"]);
 
@@ -38,7 +35,7 @@ l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'
     <aside class="detailed_event-right_panel">
         <?php
         $points = $dbMain->selectQueryAndFetch('SELECT SUM(NB_POINTS) FROM EVENTS_POINTS WHERE EVENT_ID=?', array($id), 'i')[0][0];
-        if ($_SESSION['role'] == 4) {
+        if ($_SESSION['roleId'] == 4) {
             ?>
             <form class="detailed_event-right_panel-vote" method="post">
                 <h2 class="vote-title">Voter pour l'évènement</h2>
