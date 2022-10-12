@@ -47,6 +47,7 @@ a{
 
 .points-remaining {
     font-family: var(--text);
+    font-weight: bolder;
 }
 
 .dropdown{

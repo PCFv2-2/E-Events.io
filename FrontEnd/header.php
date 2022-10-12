@@ -80,12 +80,12 @@ function startPage($title, $cssName, $jsScipt){
             }
             elseif ($_SESSION['roleId'] == 2) {
             ?>
-            <li class="dropdown__li"><a><span class="material-symbols-outlined">how_to_vote</span> Vote pour un évènement</a></li>
+            <li class="dropdown__li"><a href="juryVoteManager.php"><span class="material-symbols-outlined">how_to_vote</span> Vote pour un évènement</a></li>
             <?php
             }
             elseif ($_SESSION['roleId'] == 3) {
             ?>
-            <li class="dropdown__li"><span class="material-symbols-outlined">tune</span> Gestion de mon évènement</li>
+            <li class="dropdown__li"><a href=""></a><span class="material-symbols-outlined">tune</span> Gestion de mon évènement</li>
             <?php
             }
             ?>

@@ -8,6 +8,9 @@ $eventsLists = $dbMain->selectQueryAndFetch('SELECT EVENT_ID, EVENT_NAME, DESCRI
 
 include './header.php';
 include './footer.php';
+if ($_SESSION['roleId'] != 2) {
+    header('Location: ./errorPage1.html');
+}
 startPage('Gestion des utilisateurs', array('juryVoteManager'), array());
 ?>
     <link rel="stylesheet"
