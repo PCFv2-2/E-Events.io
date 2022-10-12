@@ -49,7 +49,7 @@ function startPage($title, $cssName, $jsScipt){
                 <?php
                 if (isset($_SESSION['roleId']) and $_SESSION['roleId'] == 4) {
                 ?>
-                <div class="container_top_bot__item container_top_botButton"><?php echo getRemainPoints($_SESSION['userId']);?> points restant</div>
+                    <div class="container_top_bot__item container_top_botButton"><span class="points-remaining"><?php echo getRemainPoints($_SESSION['userId']);?></span> points restant</div>
                 <?php
                 }
                 ?>

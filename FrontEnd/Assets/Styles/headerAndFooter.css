@@ -27,7 +27,7 @@ a{
 }
 
 .container_bot_font {
-    font-family: "Kumbh";
+    font-family: var(--text);
 }
 
 .container_top_bot__section {
@@ -44,6 +44,10 @@ a{
     cursor: pointer;
 }
 
+
+.points-remaining {
+    font-family: var(--text);
+}
 
 .dropdown{
     position: absolute;
