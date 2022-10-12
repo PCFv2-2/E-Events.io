@@ -71,6 +71,7 @@
 
 .login-form-submit {
     display: flex;
+    justify-content: center;
     column-gap: 2rem;
 }
 

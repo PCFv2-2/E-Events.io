@@ -1,5 +1,5 @@
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -7,7 +7,6 @@ footer {
 main {
     margin: 0 auto;
     padding: 30px 20px;
-
 }
 
 a{

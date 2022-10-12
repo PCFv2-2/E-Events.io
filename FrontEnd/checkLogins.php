@@ -5,10 +5,9 @@ require_once '../BackEnd/Crypter/crypter.php';
 require_once '../BackEnd/BackOffice/Users/usersManager.php';
 require_once '../BackEnd/Classes/Enum/DataBaseEnum.php';
 
-$username = strip_tags($_POST['username']);
-$password = strip_tags($_POST['password']);
-
-if (isset($username) and isset($password)){
+if (isset($_POST['username']) and isset($_POST['password'])){
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags($_POST['password']);
     $dbLogin = new DataBase(DataBaseEnum::LOGINS_READ);
     $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
     $idInDb = getIdOfUser(new User(-1, $username));

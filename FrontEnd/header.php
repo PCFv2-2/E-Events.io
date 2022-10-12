@@ -81,7 +81,7 @@ function startPage($title, $cssName, $jsScipt){
             if ($_SESSION['roleId'] == 1) {
             ?>
             <li class="dropdown__li underline"><a href="usersManager.php"><span class="material-symbols-outlined">settings</span> Gestion des utilisateurs</a></li>
-            <li class="dropdown__li"><a><span class="material-symbols-outlined">settings</span> Gestion des campagnes</a></li>
+            <li class="dropdown__li"><a href="seasonsManager.php"><span class="material-symbols-outlined">settings</span> Gestion des campagnes</a></li>
                 <?php
             }
             elseif ($_SESSION['roleId'] == 2) {
