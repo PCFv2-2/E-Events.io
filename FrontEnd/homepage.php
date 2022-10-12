@@ -23,7 +23,7 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
                             ?>
                             <a class="other_events-cards-card" href="#">
                                 <div class="card-bottom">
-                                    <h3 class="card-bottom-title"><?php echo $eventName?></h3>
+                                    <h2 class="card-bottom-title"><?php echo $eventName?></h2>
                                     <i class="fa fa-arrow-right"></i>
                                 </div>
                             </a>
@@ -40,7 +40,7 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
         <?php
             }
         ?>
-        <br/>
+        <br>
         <h1>Voici les évènements de la saison précédente :</h1>
         <div class="slideshow-container">
             <!-- Full-width images with number and caption text -->
@@ -63,8 +63,8 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
             </div>
 
             <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a href="#" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a href="#" class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
 

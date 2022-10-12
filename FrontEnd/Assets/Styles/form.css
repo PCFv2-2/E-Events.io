@@ -118,8 +118,6 @@ form{
     position: absolute;
     background-color: var(--light_primary);
     border-radius: var(--radius1);
-    border-color: var(--black);
-    border-width: 1px;
 
 }
 
@@ -135,6 +133,48 @@ form{
 @media screen and (max-width: 768px) {
     #contact {
         flex-direction: column;
+    }
+
+    #formAddingEvent{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #formAddingEvent .input{
+        width: 8.5em;
+    }
+
+    #formAddingEvent .input2{
+        width: 8.5em;
+    }
+
+    #formAddingEvent .input3{
+        width: 15em;
+    }
+
+    #formContact .input{
+        width: 10em;
+    }
+
+    #formContact .input2{
+        width: 5em;
+    }
+
+    #form-left{
+        margin-left: 0.5em;
+    }
+
+    #form-right{
+        margin-left: 0.25em;
+        margin-right: 0em;
+    }
+
+    form{
+        margin: 0%;
+    }
+
+    #file{
+        width: 15em;
     }
 
     #title{
