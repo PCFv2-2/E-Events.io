@@ -33,7 +33,7 @@ $isSeason = !(count($data)==0);
 
 if($isSeason){
     $idSeason=$data[0][0];
-    $data = $dbMain->selectQueryAndFetch("SELECT DISTINCT E.EVENT_ID, E.EVENT_NAME, I.IMAGE_PATH FROM `EVENTS` AS E JOIN `EVENTS_IMAGES` AS I ON E.EVENT_ID=I.EVENT_ID WHERE `SEASON_ID`<= ? ",array($idSeason),"i");
+    $data = $dbMain->selectQueryAndFetch("SELECT DISTINCT E.EVENT_ID, E.EVENT_NAME, I.IMAGE_PATH FROM `EVENTS` AS E JOIN `EVENTS_IMAGES` AS I ON E.EVENT_ID=I.EVENT_ID WHERE `SEASON_ID`= ? ",array($idSeason),"i");
 }
 
 
