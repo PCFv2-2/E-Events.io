@@ -2,16 +2,7 @@
     width: 50%;
     transition: 0.5s ease-in-out;
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.container::-webkit-scrollbar {
-    display: none;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
 .container {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    height: 65%;
-    overflow: scroll;
     margin-bottom: 2em;
 }
 .user_manager_all_users, .row_user{
@@ -56,7 +47,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     margin: 1em;
 }
 .row_user input, .row_user span{
@@ -65,7 +55,10 @@
 }
 .modify_icons{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+}
+.modify_icons span{
+    margin: 0;
 }
 .submit_button{
     grid-column-start: 4;
@@ -73,7 +66,6 @@
     background-color: var(--secondary);
     border-radius: var(--radius3);
 }
-
 @media screen and (max-width: 1200px) {
     .user_manager{
         width: 75%;
