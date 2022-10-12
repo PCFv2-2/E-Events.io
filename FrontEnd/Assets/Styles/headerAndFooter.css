@@ -57,7 +57,7 @@ a{
     margin: 0;
     padding: 0;
     width: 18em;
-    right: 1;
+    right: 0;
     border-radius: var(--radius1);
     list-style-type: none;
     background-color: var(--white);

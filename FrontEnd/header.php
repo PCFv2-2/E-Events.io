@@ -4,23 +4,26 @@ require_once '../Required.php';
 require_once '../BackEnd/FrontOffice/Points/pointsManager.php';
 function startPage($title, $cssName, $jsScipt){
     ?>
+    <!DOCTYPE html>
     <html lang="fr-FR">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8">
+        <meta name="description" content="Site web présentant des évèvements">
+        <meta name="keywords" content="events">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title> <?php echo $title;?> </title>
         <link rel="icon" type="image/x-icon" href="Assets/Images/logo_orange_no_text.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Assets/Styles/main.css" type="text/css"/>
-        <link rel="stylesheet" href="Assets/Styles/headerAndFooter.css" type="text/css"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="Assets/Styles/main.css" type="text/css">
+        <link rel="stylesheet" href="Assets/Styles/headerAndFooter.css" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
         <script src="./Assets/Javascript/setDropdown.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <?php
             //stylesheet
             foreach($cssName as $stylesheet){?>
-                <link rel="stylesheet" href="./Assets/Styles/<?php echo $stylesheet; ?>.css" type="text/css"/>
+                <link rel="stylesheet" href="./Assets/Styles/<?php echo $stylesheet; ?>.css" type="text/css">
             <?php
             }
             //js script
@@ -53,7 +56,7 @@ function startPage($title, $cssName, $jsScipt){
                 <?php
                 }
                 ?>
-                <div class="container_top_bot__item container_top_botButton"><a href="contact.php"><span class="material-symbols-outlined">mail</span></i></a></div>
+                <div class="container_top_bot__item container_top_botButton"><a href="contact.php"><span class="material-symbols-outlined">mail</span></a></div>
                 <?php
                 if (!isset($_SESSION['userId'])) {
                 ?>
