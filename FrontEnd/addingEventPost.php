@@ -1,6 +1,10 @@
 <?php
 require_once '../Required.php';
 
+$eventName = strip_tags($_POST['eventName']);
+$eventDescription = strip_tags($_POST['eventDescription']);
+$eventLocation = strip_tags($_POST['eventLocation']);
+
 $postAddingEvent=array(array("eventName","s",true),array("eventDescription","s",true)
 ,array("eventLocation","s",true),array("contactType1","s",true),
     array("contact1","s",true),array("contactType2","s",false),array("contact2","s",false),
@@ -27,7 +31,7 @@ $idSeason=$data[0][0];
 //get the current date
 $today = date("Y-m-d H:i:s");
 //insert data into table EVENTS
-$values = array(76,$idSeason,$_POST["eventName"], $_POST["eventDescription"],$today,$_POST["eventLocation"]);
+$values = array(76,$idSeason,$eventName, $eventDescription,$today,$eventLocation);
 $types = "iissss";
 $idEvent=$dbMain->insertQueryAndFetch('INSERT INTO `EVENTS` (USER_ID,SEASON_ID,EVENT_NAME,DESCRIPTION,DATE_ADD,PLACE) VALUES (?,?,?,?,?,?)',$values,$types);
 //inserting contact(s)
