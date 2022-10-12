@@ -45,7 +45,7 @@ startPage('Gestion des utilisateurs', array('juryVoteManager'), array());
                                value="<?php echo $eventsLists[$i][2] ?>"/>
                         <input type="text" name="pointsEvents[]"
                                value="<?php echo $dbMain->selectQueryAndFetch('SELECT NB_POINTS FROM `EVENTS_POINTS` JOIN `EVENTS` ON `EVENTS_POINTS`.EVENT_ID = `EVENTS`.EVENT_ID WHERE `EVENTS`.EVENT_ID = ?', array($eventsLists[$i][0]), 'i')[0][0]; ?>"/>
-                        <span class="material-symbols-outlined">info</span>
+                        <a href="./detailedEvent.php?id=<?php echo $eventsLists[$i][0]; ?>" ><span class="material-symbols-outlined">info</span></a>
                     </div>
                     <?php
                 }
