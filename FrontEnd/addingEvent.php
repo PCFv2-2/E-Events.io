@@ -16,35 +16,35 @@ if (isset($_GET['modify'])) {
 
 $title = $modify ? "Modifier mon évènement" : "Ajouter un évènement";
 startPage($title, ["form"], []);
-?>
-startPage("Ajouter un évènement",["form"],[]);
+
 
 //connect to database
 $dbMain = new DataBase(DataBaseEnum::MAIN_WRITE);
 //get the current season
 $data = $dbMain->selectQueryAndFetch("SELECT * FROM `SEASONS` WHERE `DATE_START`<= NOW() AND NOW() <= `DATE_END`");
-$isSeason = (count($data)==0);
+$isSeason = (count($data) == 0);
 
-if($isSeason){?>
+if ($isSeason) {
+    ?>
     <main>
-    <!-- It contains an article -->
-    <article>
-        <p id="title">il n'est pas possible d'ajouter d'évènement, la saison est finie</p>
-    </article>
+        <!-- It contains an article -->
+        <article>
+            <p id="title">il n'est pas possible d'ajouter d'évènement, la saison est finie</p>
+        </article>
     </main>
-        <?php
+    <?php
 
-}
-else{
+} else {
 
-?>
+    ?>
     <!-- Here is our page's main content -->
     <main>
         <!-- It contains an article -->
         <article>
             <!-- Registration form -->
             <!-- subject, fist-name, last-name, email, details -->
-            <form method="post" action="addingEventPost.php?modify=True" enctype="multipart/form-data" id="formAddingEvent">
+            <form method="post" action="addingEventPost.php<?php if ($modify) {echo "?modify=True";}?>" enctype="multipart/form-data"
+                  id="formAddingEvent">
                 <div>
                     <h1 id="title">
                         <?php
@@ -122,7 +122,7 @@ else{
                             <input type="text" name="contact1" class="input" value="<?php
                             if ($modify && isset($contact1)) {
                                 echo $contacts[0][2];
-                            }?>"><br>
+                            } ?>"><br>
 
                             <select id="test" name="contactType2" class="input2 form-spacing">
                                 <option value="none" <?php
@@ -149,7 +149,7 @@ else{
                             <input type="text" name="contact2" class="input" value="<?php
                             if ($modify && isset($contact2)) {
                                 echo $contacts[1][2];
-                            }?>"><br>
+                            } ?>"><br>
 
                             <select name="contactType3" class="input2 form-spacing">
                                 <option value="none" <?php
@@ -176,7 +176,7 @@ else{
                             <input type="text" name="contact3" class="input" value="<?php
                             if ($modify && isset($contact3)) {
                                 echo $contacts[2][2];
-                            }?>" ><br>
+                            } ?>"><br>
 
                             <!-- Point Level -->
                             <?php
@@ -212,7 +212,12 @@ else{
                     </div>
                 </div>
                 <br>
-                <input type="submit" value="Ajouter" class="input2" id="form-submit"/>
+                <input type="submit" value="<?php
+                if ($modify) {
+                    echo "Modifier";
+                } else {
+                    echo "Ajouter";
+                } ?>" class="input2" id="form-submit"/>
 
                 <!-- limits the number of files allowed -->
                 <script>
@@ -234,7 +239,8 @@ else{
     <!-- And here is our main footer that is used across all the pages of our website -->
 
 
-<?php
-include 'footer.php';
-endPage();
+    <?php
+    include 'footer.php';
+    endPage();
+}
 ?>

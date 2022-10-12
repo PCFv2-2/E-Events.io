@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../Required.php';
 
 $eventName = strip_tags($_POST['eventName']);
@@ -31,38 +32,79 @@ $idSeason=$data[0][0];
 //get the current date
 $today = date("Y-m-d H:i:s");
 //insert data into table EVENTS
-$values = array(76,$idSeason,$eventName, $eventDescription,$today,$eventLocation);
+$values = array($_SESSION['userId'],$idSeason,$eventName, $eventDescription,$today,$eventLocation);
 $types = "iissss";
-$idEvent=$dbMain->insertQueryAndFetch('INSERT INTO `EVENTS` (USER_ID,SEASON_ID,EVENT_NAME,DESCRIPTION,DATE_ADD,PLACE) VALUES (?,?,?,?,?,?)',$values,$types);
+
+if (isset($_GET['modify']) && $_GET['modify']) {
+    $eventId = $dbMain->selectQueryAndFetch('SELECT EVENT_ID FROM EVENTS WHERE USER_ID=?', array($_SESSION['userId']), 'i')[0][0];
+    $values[] = $eventId;
+    $types = $types . 'i';
+    $dbMain->insertQueryAndFetch('UPDATE EVENTS SET USER_ID=?,SEASON_ID=?,EVENT_NAME=?,DESCRIPTION=?,DATE_ADD=?,PLACE=? WHERE EVENT_ID=?', $values, $types);
 //inserting contact(s)
-for($i=1;$i<4;$i++){
-    if($_POST["contactType".$i] != "none") {
-        $values = array($idEvent,$_POST["contactType".$i],$_POST["contact".$i]);
-        $types = "iis";
-        $dbMain->insertQueryAndFetch('INSERT INTO `EVENT_CONTACT` (EVENT_ID,TYPE_CONTACT_ID,VALUE) VALUES (?,?,?)', $values, $types);
+    for ($i = 1; $i < 4; $i++) {
+        if ($_POST["contactType" . $i] != "none") {
+            $values = array($_POST["contactType" . $i], $_POST["contact" . $i], $eventId);
+
+            $types = "isi";
+            $dbMain->insertQueryAndFetch('DELETE FROM EVENT_CONTACT WHERE TYPE_CONTACT_ID=? AND VALUE=? AND EVENT_ID=?', $values, $types);
+            $dbMain->insertQueryAndFetch('INSERT INTO `EVENT_CONTACT` (EVENT_ID,TYPE_CONTACT_ID,VALUE) VALUES (?,?,?)', array($eventId, $_POST["contactType" . $i], $_POST["contact" . $i]), 'iis');
+        }
     }
-}
 
 //inserting goal(s)
-for($i=1;$i<6;$i++){
+    for ($i = 1; $i < 6; $i++) {
 
-    if($_POST["pointLevelType".$i] != "0") {
-        $values = array($idEvent,0,$_POST["pointLevel".$i],$_POST["pointLevelType".$i]);
-        $types = "iisi";
-        $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS_GOALS` (EVENT_ID,GOAL_ID,DESCRIPTION,REQUIRE_NB_POINTS) VALUES (?,?,?,?)', $values, $types);
+        if ($_POST["pointLevelType" . $i] != "0") {
+            $values = array($eventId, $_POST["pointLevel" . $i], $_POST["pointLevelType" . $i]);
+            $types = "isi";
+
+            $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS_GOALS` (EVENT_ID,GOAL_ID,DESCRIPTION,REQUIRE_NB_POINTS) VALUES (?,0,?,?)', $values, $types);
+        }
+
+    }
+    for ($i = 0; $i < count($_FILES["file"]["name"]); $i++) {
+        $temp = explode('.', $_FILES["file"]["name"][$i]);
+        $extension = end($temp);
+        $uploadfile = "Assets/Images/Event/img_event_" . $eventId . "_" . $i . "." . $extension;
+        if (move_uploaded_file($_FILES["file"]['tmp_name'][$i], $uploadfile)) {
+            $values = array(0, $uploadfile, $eventId);
+            $types = "isi";
+            $dbMain->insertQueryAndFetch('UPDATE `EVENTS_IMAGES` SET IMAGE_ID=?,IMAGE_PATH=? WHERE EVENT_ID=?', $values, $types);
+        }
+
     }
 }
+else {
+    $idEvent = $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS` (USER_ID,SEASON_ID,EVENT_NAME,DESCRIPTION,DATE_ADD,PLACE) VALUES (?,?,?,?,?,?)', $values, $types);
+//inserting contact(s)
+    for ($i = 1; $i < 4; $i++) {
+        if ($_POST["contactType" . $i] != "none") {
+            $values = array($idEvent, $_POST["contactType" . $i], $_POST["contact" . $i]);
+            $types = "iis";
+            $dbMain->insertQueryAndFetch('INSERT INTO `EVENT_CONTACT` (EVENT_ID,TYPE_CONTACT_ID,VALUE) VALUES (?,?,?)', $values, $types);
+        }
+    }
 
-for($i=0;$i<count($_FILES["file"]["name"]);$i++) {
-    $temp=explode('.',$_FILES["file"]["name"][$i]);
-    $extension = end($temp);
-    $uploadfile="Assets/Images/Event/img_event_".$idEvent."_".$i.".".$extension;
-    if (move_uploaded_file($_FILES["file"]['tmp_name'][$i], $uploadfile)) {
-        $values = array(0,$idEvent,$uploadfile);
-        $types = "iis";
-        $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS_IMAGES` (IMAGE_ID,EVENT_ID,IMAGE_PATH) VALUES (?,?,?)', $values, $types);
+//inserting goal(s)
+    for ($i = 1; $i < 6; $i++) {
+
+        if ($_POST["pointLevelType" . $i] != "0") {
+            $values = array($idEvent, 0, $_POST["pointLevel" . $i], $_POST["pointLevelType" . $i]);
+            $types = "iisi";
+            $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS_GOALS` (EVENT_ID,GOAL_ID,DESCRIPTION,REQUIRE_NB_POINTS) VALUES (?,?,?,?)', $values, $types);
+        }
+    }
+
+    for ($i = 0; $i < count($_FILES["file"]["name"]); $i++) {
+        $temp = explode('.', $_FILES["file"]["name"][$i]);
+        $extension = end($temp);
+        $uploadfile = "Assets/Images/Event/img_event_" . $idEvent . "_" . $i . "." . $extension;
+        if (move_uploaded_file($_FILES["file"]['tmp_name'][$i], $uploadfile)) {
+            $values = array(0, $idEvent, $uploadfile);
+            $types = "iis";
+            $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS_IMAGES` (IMAGE_ID,EVENT_ID,IMAGE_PATH) VALUES (?,?,?)', $values, $types);
+        }
     }
 }
-
-header("Location: detailedEvent.php?id=".$idEvent);
+header("Location: detailedEvent.php?id=".($eventId ?? $idEvent));
 exit;
