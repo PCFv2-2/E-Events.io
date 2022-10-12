@@ -4,7 +4,13 @@ require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
 
 $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
-$eventsLists = $dbMain->selectQueryAndFetch('SELECT EVENT_ID, EVENT_NAME, DESCRIPTION FROM `EVENTS`');
+$eventsLists = $dbMain->selectQueryAndFetch('SELECT E.EVENT_ID, E.EVENT_NAME, E.DESCRIPTION, IFNULL(EP2.TOTAL_POINTS,0) AS TOTAL_POINTS
+                                                    FROM SEASONS S,
+                                                        EVENTS E
+                                                    LEFT JOIN (SELECT EP.EVENT_ID AS EVENT_ID, IFNULL(SUM(EP.NB_POINTS),0) AS TOTAL_POINTS FROM EVENTS_POINTS EP GROUP BY EVENT_ID) AS EP2 ON EP2.EVENT_ID = E.EVENT_ID
+                                                    WHERE E.SEASON_ID = S.SEASON_ID
+                                                    AND S.SEASON_ID = (SELECT MAX(SEASON_ID) FROM SEASONS)
+                                                    ORDER BY TOTAL_POINTS DESC');
 
 include './header.php';
 include './footer.php';
@@ -46,8 +52,8 @@ startPage('Gestion des utilisateurs', array('juryVoteManager'), array());
                                value="<?php echo $eventsLists[$i][1] ?>"/>
                         <input type="text" readonly name="descriptionEvents[]"
                                value="<?php echo $eventsLists[$i][2] ?>"/>
-                        <input type="text" name="pointsEvents[]"
-                               value="<?php echo $dbMain->selectQueryAndFetch('SELECT IFNULL(NB_POINTS,0) FROM `EVENTS_POINTS` JOIN `EVENTS` ON `EVENTS_POINTS`.EVENT_ID = `EVENTS`.EVENT_ID WHERE `EVENTS`.EVENT_ID = ?', array($eventsLists[$i][0]), 'i')[0][0]; ?>"/>
+                        <input type="text" readonly name="pointsEvents[]"
+                               value="<?php echo $eventsLists[$i][3]; ?>"/>
                         <a href="./detailedEvent.php?id=<?php echo $eventsLists[$i][0]; ?>" ><span class="material-symbols-outlined">info</span></a>
                     </div>
                     <?php
