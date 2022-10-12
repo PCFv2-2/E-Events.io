@@ -63,3 +63,6 @@ for($i=0;$i<count($_FILES["file"]["name"]);$i++) {
         $dbMain->insertQueryAndFetch('INSERT INTO `EVENTS_IMAGES` (IMAGE_ID,EVENT_ID,IMAGE_PATH) VALUES (?,?,?)', $values, $types);
     }
 }
+
+header("Location: detailedEvent.php?id=".$idEvent);
+exit;
