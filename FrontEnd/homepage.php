@@ -1,8 +1,21 @@
 <?php
+
+require_once '../Required.php';
+
 include '../FrontEnd/header.php';
 startPage("Accueil",["carousel","detailedEvent"],["./Assets/Javascript/carousel"]);
 
-$listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'évènement")
+//connect to database
+$dbMain = new DataBase(DataBaseEnum::MAIN_WRITE);
+//get the current season
+$data = $dbMain->selectQueryAndFetch("SELECT * FROM `SEASONS` WHERE `DATE_START`<= NOW() AND NOW() <= `DATE_END`");
+$isSeason = !(count($data)==0);
+
+if($isSeason){
+    $idSeason=$data[0][0];
+    $data = $dbMain->selectQueryAndFetch("SELECT DISTINCT E.EVENT_ID, E.EVENT_NAME, I.IMAGE_PATH FROM `EVENTS` AS E JOIN `EVENTS_IMAGES` AS I ON E.EVENT_ID=I.EVENT_ID WHERE `SEASON_ID`<= ? ",array($idSeason),"i");
+
+}
 
 ?>
 
@@ -11,7 +24,6 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
     <article>
         <?php
             //TO DO : boolean need to get from the database if there is a season
-            $isSeason = true;
 
             if ($isSeason){
         ?>
@@ -19,11 +31,11 @@ $listNamesOfEvents = array("Titre de l'évènement", "Titre de l'évènement", "
                 <section class="other_events">
                         <div class="other_events-cards">
                         <?php
-                        foreach ($listNamesOfEvents as $eventName) {
+                        foreach ($data as $event) {
                             ?>
-                            <a class="other_events-cards-card" href="#">
+                            <a class="other_events-cards-card" href="detailedEvent.php?id=<?php echo $event[0] ?>" style="background-image: url(<?php echo $event[2] ?>); background-size: cover;">
                                 <div class="card-bottom">
-                                    <h3 class="card-bottom-title"><?php echo $eventName?></h3>
+                                    <h3 class="card-bottom-title"><?php echo $event[1]?></h3>
                                     <i class="fa fa-arrow-right"></i>
                                 </div>
                             </a>
