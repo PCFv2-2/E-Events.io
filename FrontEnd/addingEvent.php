@@ -4,9 +4,26 @@ if ($_SESSION['roleId'] != 3) {
     header('Location: ./errorPage1.html');
 }
 startPage("Ajouter un évènement",["form"],[]);
+
+//connect to database
+$dbMain = new DataBase(DataBaseEnum::MAIN_WRITE);
+//get the current season
+$data = $dbMain->selectQueryAndFetch("SELECT * FROM `SEASONS` WHERE `DATE_START`<= NOW() AND NOW() <= `DATE_END`");
+$isSeason = (count($data)==0);
+
+if($isSeason){?>
+    <main>
+    <!-- It contains an article -->
+    <article>
+        <p id="title">il n'est pas possible d'ajouter d'évènement, la saison est finie</p>
+    </article>
+    </main>
+        <?php
+
+}
+else{
+
 ?>
-
-
     <!-- Here is our page's main content -->
     <main>
         <!-- It contains an article -->
@@ -103,6 +120,7 @@ startPage("Ajouter un évènement",["form"],[]);
 
 
 <?php
+}
 include '../FrontEnd/footer.php';
 endPage();
 ?>
