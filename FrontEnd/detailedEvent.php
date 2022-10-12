@@ -8,10 +8,18 @@ if (!isset($_GET['id'])) {
     header("Location: errorPage1.html");
 }
 
+
 $id = intval($_GET["id"]);
 
 $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
+
+// Redirect to error page if id is unknown
+if (empty($dbMain->selectQueryAndFetch('SELECT EVENT_ID FROM EVENTS WHERE EVENT_ID=?', array($id), 'i'))) {
+    header('Location: errorPage1.html');
+}
+
 $event = $dbMain->selectQueryAndFetch('SELECT * FROM EVENTS WHERE EVENT_ID=?', array($id), "i")[0];
+$maxPoints = $dbMain->selectQueryAndFetch('SELECT MAX(REQUIRE_NB_POINTS) FROM EVENTS_GOALS WHERE EVENT_ID=?', array($id), 'i')[0][0];
 
 startPage("Nom de l'évènement", array('detailedEvent'), array());
 //$points = $_SESSION["nbPoints"];
@@ -35,68 +43,84 @@ l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'
     <aside class="detailed_event-right_panel">
         <?php
         $points = $dbMain->selectQueryAndFetch('SELECT SUM(NB_POINTS) FROM EVENTS_POINTS WHERE EVENT_ID=?', array($id), 'i')[0][0];
-        if ($_SESSION['roleId'] == 4) {
-            ?>
-            <form class="detailed_event-right_panel-vote" method="post">
-                <h2 class="vote-title">Voter pour l'évènement</h2>
-                <div class="vote-donate_selector">
-                    <input type="range" id="donate_selector_slider" min="1" max="<?php echo $points; ?>"
-                           oninput="donate_selector_number.value=donate_selector_slider.value"/>
-                    <input type="number" id="donate_selector_number" value="4" min="0" max="<?php
-                    //TODO add a current value and a max value
-                    ?>
+        if (isset($_SESSION['roleId'])) {
+            if ($_SESSION['roleId'] == 4) {
+                ?>
+                <form class="detailed_event-right_panel-vote" method="post">
+                    <h2 class="vote-title">Voter pour l'évènement</h2>
+                    <div class="vote-donate_selector">
+                        <input type="range" id="donate_selector_slider" min="1" max="<?php echo $points; ?>"
+                               oninput="donate_selector_number.value=donate_selector_slider.value"/>
+                        <input type="number" id="donate_selector_number" value="4" min="0" max="<?php
+                        //TODO add a current value and a max value
+                        ?>
                     15" oninput="donate_selector_slider.value=donate_selector_number.value"/>
-                </div>
-                <div class="vote-progress_bar">
+                    </div>
                     <?php
+
                     $currentPoints = $dbMain->selectQueryAndFetch('SELECT SUM(NB_POINTS) FROM EVENTS_POINTS WHERE EVENT_ID=?', array($id), 'i')[0][0];
-                    $maxPoints = $dbMain->selectQueryAndFetch('SELECT MAX(REQUIRE_NB_POINTS) FROM EVENTS_GOALS WHERE EVENT_ID=?', array($id), 'i')[0][0];
-                    ?>
-                    <div class="vote-progress_bar-value" style="width: <?php
-                    $percentage = ($currentPoints / $maxPoints) * 100;
-                    if ($percentage>100) {
-                        echo 100;
-                    }
-                    if ($percentage<0) {
-                        echo 0;
-                    }
-                    echo $percentage+5;
-                    ?>%"><?php echo ($currentPoints / $maxPoints) * 100 . '%'; ?></div>
-                </div>
-                <p class="vote-text">
+                    if ($maxPoints != 0) {
+                        ?>
+                        <div class="vote-progress_bar">
+                            <div class="vote-progress_bar-value" style="width: <?php
+                            $percentage = ($currentPoints / $maxPoints) * 100;
+                            if ($percentage > 100) {
+                                echo 100;
+                            }
+                            if ($percentage < 0) {
+                                echo 0;
+                            }
+                            echo $percentage + 5;
+                            ?>%"><?php echo ($currentPoints / $maxPoints) * 100 . '%'; ?></div>
+                        </div>
+                    <?php } ?>
+                    <p class="vote-text">
+                        <?php
+                        if ($maxPoints == 0) {
+                            echo 'Pas de paliers, mais vous pouvez quand même voter';
+                        } else if ($currentPoints < $maxPoints) {
+                            echo 'Encore ' . ($maxPoints - $currentPoints) . ' points avant d\'atteindre le niveau suivant';
+                        } else if ($currentPoints > $maxPoints) {
+                            echo 'Le dernier palier à été atteint, mais vous pouvez quand même voter !';
+                        }
+
+                        echo '<br />Points totaux de l\'évènement : ' . $currentPoints;
+                        ?>
+                    </p>
+                    <button type="submit" class="vote-submit_btn btn">Je vote</button>
+                </form>
+                <?php
+            }
+        }
+
+        if ($maxPoints > 0) {
+            ?>
+            <div class="detailed_event-right_panel-steps">
+                <h2 class="steps-title">les paliers</h2>
+                <div class="steps-main">
                     <?php
-                    if ($currentPoints<$maxPoints) {
-                        echo 'Encore ' . ($maxPoints - $currentPoints) . ' points avant d\'atteindre le niveau suivant';
-                    }
-
-                    else if ($currentPoints>$maxPoints) {
-                        echo 'Le dernier palier à été atteint, mais vous pouvez quand même voter !';
-                    }
-
-                    echo '<br />Points totaux de l\'évènement : ' . $currentPoints;
+                    $goals = $dbMain->selectQueryAndFetch('SELECT DESCRIPTION, REQUIRE_NB_POINTS FROM EVENTS_GOALS WHERE EVENT_ID=?', array($id), 'i');
                     ?>
-                </p>
-                <button type="submit" class="vote-submit_btn btn">Je vote</button>
-            </form>
+                    <span class="steps-main-progress">
+                        <?php
+                            foreach ($goals as $goal) {
+                                echo '<span class="steps-main-progress-number">' . $goal[1] . '</span>' . PHP_EOL;
+                            }
+                        ?>
+                    </span>
+                    <div class="steps-main-container">
+                        <?php
+                        foreach ($goals as $goal) {
+                            echo '<div class="steps-main-text">' . $goal[0] . '</div>' . PHP_EOL;
+                        }
+                        ?>
+                    </div>
+                </div>
+                <!--<button class="steps-add_btn">+</button>-->
+            </div>
             <?php
         }
         ?>
-
-        <div class="detailed_event-right_panel-steps">
-            <h2 class="steps-title">les paliers</h2>
-            <div class="steps-main">
-                <!-- TODO Add a multiple handle range slider   -->
-                <div class="steps-main-progress_numbers"></div>
-                <div class="steps-main-text">
-                    <p>Début</p>
-                    <p>Etape 1</p>
-                    <p>Etape 2</p>
-                    <p>Etape 3</p>
-                    <p>Etape 4</p>
-                </div>
-            </div>
-            <!--<button class="steps-add_btn">+</button>-->
-        </div>
 
     </aside>
 </section>
