@@ -7,7 +7,7 @@
 }
 .user_manager_all_users, .row_user{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 6em;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 50px;
     align-items: center;
     justify-content: center;
@@ -20,7 +20,7 @@
 }
 
 /* Column */
-.column_1, .column_2, .column_3, .column_4{
+.column_1, .column_2, .column_3{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +31,6 @@
 .column_1{grid-column-start: 1;}
 .column_2{grid-column-start: 2;}
 .column_3{grid-column-start: 3;}
-.column_4{grid-column-start: 4;}
 
 .border_r{
     border-radius: var(--radius1);
@@ -40,7 +39,7 @@
 .row_user{
     margin: 0;
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 4;
     background-color: var(--light_primary);
 }
 .row_user input, .row_user span, .submit_button{
@@ -61,7 +60,7 @@
     margin: 0;
 }
 .submit_button{
-    grid-column-start: 4;
+    grid-column-start: 3;
     height: 3em;
     background-color: var(--secondary);
     border-radius: var(--radius3);

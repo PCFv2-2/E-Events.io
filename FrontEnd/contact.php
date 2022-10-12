@@ -12,7 +12,7 @@
         <!-- subject, fist-name, last-name, email, details -->
         <form id="formContact">
             <div>
-                <p id="title">contact</p>
+                <h2 id="title">contact</h2>
                 <div class="form-global">
                     <div id="form-left">
                         <label for="subject">Sujet</label><br>
@@ -31,7 +31,7 @@
                             </div>
                             <div id="last-name">
                                 <label for="last-name">Nom</label><br>
-                                <input type="text" id="last-name" name="last-name" class="input2" required>
+                                <input type="text" name="last-name" class="input2" required>
                                 <br>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <br>
-            <input type="submit" value="Envoyer" class="input2" id="form-submit"/>
+            <input type="submit" value="Envoyer" class="input2" id="form-submit">
             <br>
         </form>
     </article>

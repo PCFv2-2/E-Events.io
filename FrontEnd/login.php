@@ -37,14 +37,13 @@ startPage("Connexion", ["login"], []);
             ?>
 
             <div class="login-form-submit">
-                <button class="login-form-signup"><a href="contact.php">S'inscrire</a></button>
+                <a class="login-form-signup" href="contact.php">S'inscrire</a>
                 <button type="submit" class="login-form-login">Se connecter</button>
             </div>
 
         </form>
     </div>
-    <div class="login-right_panel"><img src="Assets/Images/login.jpg" alt="Picture showing someone connecting"/>
-    </div>
+    <div class="login-right_panel"><img src="Assets/Images/login.jpg" alt="Picture showing someone connecting"></div>
 </section>
 
 <?php
