@@ -44,14 +44,15 @@
 
 body {
     margin:0;
-    position: relative;
-    padding-bottom: 58px;
     overflow-x: hidden;
 }
 
 h1, h2, h3 {
     font-family: var(--title);
     text-transform: lowercase;
+}
+h2{
+    font-size: 1em;
 }
 
 button {

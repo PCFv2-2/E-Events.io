@@ -1,5 +1,5 @@
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -7,7 +7,6 @@ footer {
 main {
     margin: 0 auto;
     padding: 30px 20px;
-
 }
 
 a{
@@ -57,7 +56,7 @@ a{
     margin: 0;
     padding: 0;
     width: 18em;
-    right: 1;
+    right: 0;
     border-radius: var(--radius1);
     list-style-type: none;
     background-color: var(--white);

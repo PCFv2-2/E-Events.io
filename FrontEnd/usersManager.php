@@ -2,6 +2,7 @@
 require_once '../Required.php';
 require_once Required::getMainDir() . '/BackEnd/Constants/keyConstants.php';
 require_once Required::getMainDir() . '/BackEnd/Crypter/crypter.php';
+require_once Required::getMainDir() . '/BackEnd/FrontOffice/Password/passwordRandomizer.php';
 
 $dbLogin = new DataBase(DataBaseEnum::LOGINS_READ);
 $dbMain = new DataBase(DataBaseEnum::MAIN_READ);
@@ -15,8 +16,6 @@ if ($_SESSION['roleId'] != 1) {
 }
 startPage('Gestion des utilisateurs', array('usersManager'), array());
 ?>
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <main class="user_manager">
     <h2>Gestion des utilisateurs</h2>
     <div class="container">
@@ -67,7 +66,7 @@ startPage('Gestion des utilisateurs', array('usersManager'), array());
     <!-- Form 2 -->
     <form action="../BackEnd/BackOffice/Users/usersManagerFormAdd.php" method="post" class="border_r row_user" onsubmit="return confirm('Voulez-vous vraiment enregistrer ces modifications dans la Base de données ?');">
         <input required type="text" name="login" placeholder="Michel"/>
-        <input required type="password" name="password" placeholder="123456"/>
+        <input required type="text" name="password" value="<?php echo randomPassword(); ?>" placeholder="123456"/>
         <select name="role">
             <option value="Administrateur">Administrateur</option>
             <option value="Membre du jury">Membre du jury</option>

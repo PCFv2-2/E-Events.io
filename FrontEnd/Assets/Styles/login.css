@@ -71,11 +71,11 @@
 
 .login-form-submit {
     display: flex;
-    height: auto;
+    justify-content: center;
     column-gap: 2rem;
 }
 
-.login-form-submit button {
+.login-form-submit button, .login-form-submit a{
     border: var(--border);
     border-radius: var(--radius1);
     width: 10rem;
@@ -83,13 +83,13 @@
     transition: transform 0.2s ease-in-out;
 }
 
-.login-form-submit button:hover {
+.login-form-submit button:hover, .login-form-submit a:hover {
     transform: scale(1.05);
 }
-
-
-.login-form-signup {
-    margin-left: auto;
+.login-form-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-form-login {
