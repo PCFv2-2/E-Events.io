@@ -1,8 +1,8 @@
 <?php
 include '../FrontEnd/header.php';
-if ($_SESSION['roleId'] != 3) {
+/*if ($_SESSION['roleId'] != 3) {
     header('Location: ./errorPage1.html');
-}
+}*/
 startPage("Ajouter un évènement",["form"],[]);
 ?>
 
