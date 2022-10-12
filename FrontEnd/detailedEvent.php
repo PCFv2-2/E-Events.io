@@ -46,13 +46,13 @@ l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'
         if (isset($_SESSION['roleId'])) {
             if ($_SESSION['roleId'] == 4) {
                 ?>
-                <form class="detailed_event-right_panel-vote" method="post">
+                <form action="../BackEnd/BackOffice/Donor/donorManagerForm.php?id=<?php echo $_GET['id']?>" class="detailed_event-right_panel-vote" method="post">
                     <h2 class="vote-title">Voter pour l'évènement</h2>
                     <div class="vote-donate_selector">
-                        <input type="range" id="donate_selector_slider" min="1" max="<?php echo $points; ?>"
+                        <input name="points" type="range" id="donate_selector_slider" min="1" max="<?php echo getRemainPoints($_SESSION['userId']); ?>"
                                oninput="donate_selector_number.value=donate_selector_slider.value"/>
-                        <input type="number" id="donate_selector_number" value="4" min="0" max="<?php
-                        //TODO add a current value and a max value
+                        <input name="points" type="number" id="donate_selector_number" value="4" min="0" max="<?php
+                            echo getRemainPoints($_SESSION['userId']);
                         ?>
                     15" oninput="donate_selector_slider.value=donate_selector_number.value"/>
                     </div>
@@ -142,5 +142,19 @@ l'évènement", "Titre de l'évènement", "Titre de l'évènement", "Titre de l'
     </div>
 </section>
 <?php
+if (isset($_GET['error'])){
+    ?>
+    <script>
+        alert('Le vote ne c\'est pas passé comme prévu, veuiller recommencer !');
+    </script>
+    <?php
+} else if (isset($_GET['valid'])){
+    ?>
+    <script>
+        alert('Votre vote a bien été enregistré !');
+    </script>
+    <?php
+}
+
 endPage();
 ?>
