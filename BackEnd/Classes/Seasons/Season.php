@@ -4,11 +4,12 @@ class Season
     private $id;
     private $dateStart;
     private $dateEnd;
+    private $defaultPoint;
 
-    public function __construct($id = -1, DateTime $dateStart = null, DateTime $dateEnd = null)
+    public function __construct($id = -1, DateTime $dateStart = null, DateTime $dateEnd = null, $defaultPoint = 0)
     {
         $this->id = $id;
-
+        $this->defaultPoint = $defaultPoint;
         echo is_null($dateStart);
         if (is_null($dateStart)) {
             $this->dateStart = new DateTime();
@@ -46,5 +47,13 @@ class Season
     public function getDateEnd()
     {
         return $this->dateEnd;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDefaultPoint()
+    {
+        return $this->defaultPoint;
     }
 }
